@@ -1,0 +1,1581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Para Specimens</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Practical parasitology revision: every specimen from Sections 1 to 7 with Atlas morphology and self-marking mock exams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..600,0..100;1,9..144,400..600,0..100&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&family=Caveat:wght@500;600&display=swap">
+<style>/* Layout: a specimen cabinet. Each plate sits on dark-navy glass with a yellow lab tag; red is the examiner's pen (pointers, marks, wrong answers). */
+:root {
+  --ink: #061131;        /* page: deep navy glass */
+  --navy: #0C1C4A;       /* raised panels */
+  --line: #233872;
+  --plate: #030A1F;      /* behind photos */
+  --yellow: #FFC83A;     /* lab tags, controls band */
+  --yellow-ink: #2A1F00;
+  --red: #E12B36;        /* marking pen */
+  --red-text: #FF6069;
+  --paper: #F6F1E4;      /* text */
+  --muted: #A9B4D6;
+  --good: #57D49A;
+  --display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --body: "Hanken Grotesk", "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --ease: cubic-bezier(.16,.84,.24,1);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--paper); font: 400 1.0625rem/1.6 var(--body); overflow-x: clip; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--ink); }
+h1, h2, h3, h4, p, ol, ul, dl, dd, figure { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
+section, .case { scroll-margin-top: 120px; }
+.wrap { max-width: 1320px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 720px) { .wrap { padding-left: max(44px, env(safe-area-inset-left, 0px)); padding-right: max(44px, env(safe-area-inset-right, 0px)); } }
+h2 { font: 500 clamp(2.6rem, 7vw, 5.6rem)/.98 var(--display); letter-spacing: -.02em; text-wrap: balance; font-variation-settings: "SOFT" 50, "opsz" 144; }
+h2 em { font-style: italic; color: var(--yellow); }
+.lede { max-width: 58ch; color: var(--muted); }
+.tag { font: 600 .75rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+
+/* Top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: rgba(6,17,49,.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding-block: 14px; }
+.brand { font: italic 600 1.35rem/1.1 var(--display); text-decoration: none; display: flex; align-items: center; gap: 10px; white-space: nowrap; flex: none; }
+.bar nav { min-width: 0; }
+.brand i { width: 14px; height: 14px; border-radius: 50%; background: var(--yellow); box-shadow: 6px 0 0 var(--red); margin-right: 6px; }
+.bar nav { display: flex; gap: 18px; overflow-x: auto; max-width: 100%; scrollbar-width: none; }
+.bar nav a { font-size: .875rem; font-weight: 500; text-decoration: none; color: var(--muted); white-space: nowrap; padding-block: 3px; border-bottom: 2px solid transparent; transition: color .25s, border-color .25s; }
+.bar nav a:hover { color: var(--paper); border-color: var(--yellow); }
+.bar nav a.exam-link { color: var(--yellow); }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; padding-block: clamp(36px, 6vw, 96px) clamp(48px, 7vw, 100px); }
+.hero .wrap { display: grid; gap: 36px; align-items: center; }
+@media (min-width: 960px) { .hero .wrap { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); } }
+.hero-copy { display: grid; gap: 26px; min-width: 0; }
+.kicker { color: var(--yellow); }
+h1 { font: 500 clamp(3.2rem, 11vw, 8.4rem)/.9 var(--display); letter-spacing: -.035em; font-variation-settings: "SOFT" 100, "opsz" 144; }
+h1 span { display: block; }
+h1 em { font-style: italic; color: var(--yellow); }
+.hero .lede { font-size: 1.1875rem; max-width: 40ch; }
+.stats { display: flex; flex-wrap: wrap; gap: 10px 30px; color: var(--muted); }
+.stats b { font: 500 2.4rem/1 var(--display); color: var(--paper); margin-right: 6px; font-variant-numeric: tabular-nums; }
+.starts { display: flex; flex-wrap: wrap; gap: 12px; }
+.eyepiece { position: relative; justify-self: center; width: min(100%, 560px); }
+.lens { aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: var(--plate); box-shadow: 0 0 0 10px var(--navy), 0 0 0 11px var(--line), 0 30px 90px rgba(255,200,58,.12); }
+.lens img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); }
+.pointer { position: absolute; left: 54%; top: 47%; width: 46%; height: 3px; background: var(--red); transform-origin: 0 50%; transform: rotate(-24deg); border-radius: 2px; }
+.pointer::before { content: ""; position: absolute; left: -2px; top: -5px; border: 6px solid transparent; border-right: 12px solid var(--red); border-left: 0; }
+.eyepiece figcaption { position: absolute; right: 0; top: 10%; transform: translateX(10%) rotate(3deg); background: var(--yellow); color: var(--yellow-ink); padding: 8px 12px; font: 600 .8125rem/1.3 var(--mono); max-width: 190px; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+@media (max-width: 600px) { .eyepiece figcaption { transform: none; right: 0; top: auto; bottom: -10px; } }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: 0; background: var(--red); color: #fff; font-weight: 600; font-size: 1rem; padding: 13px 22px; border-radius: 999px; text-decoration: none; transition: transform .3s var(--ease), background-color .25s; }
+.btn:hover { transform: translateY(-2px); background: #F23B46; }
+.btn.alt { background: transparent; color: var(--paper); box-shadow: inset 0 0 0 1.5px var(--line); }
+.btn.alt:hover { box-shadow: inset 0 0 0 1.5px var(--yellow); background: transparent; }
+.btn.yellow { background: var(--yellow); color: var(--yellow-ink); }
+.btn.small { padding: 9px 14px; font-size: .875rem; }
+.btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+/* Controls band */
+.controls { background: var(--yellow); color: var(--yellow-ink); }
+@media (min-width: 900px) { .controls { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 57px); z-index: 8; } }
+.controls .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 34px; padding-block: 10px; }
+.seg { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.seg .tag { margin-right: 6px; opacity: .75; }
+.seg button { cursor: pointer; border: 0; background: transparent; color: var(--yellow-ink); font-weight: 600; font-size: .9375rem; padding: 6px 12px; border-radius: 999px; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--yellow); }
+.seg button:focus-visible { outline-color: var(--ink); }
+.count-note { margin-left: auto; font: 600 .8125rem/1.3 var(--mono); }
+
+/* Chapters & cases */
+.chapter { padding-block: clamp(60px, 8vw, 120px) 0; }
+.ch-head { display: grid; gap: 12px; margin-bottom: clamp(28px, 4vw, 52px); }
+.ch-head .tag { color: var(--yellow); }
+@media (min-width: 860px) { .ch-head { grid-template-columns: minmax(0, 1fr) minmax(0, 32ch); align-items: end; gap: 40px; } }
+.cases { display: grid; gap: clamp(36px, 5vw, 56px) clamp(24px, 3vw, 40px); align-items: start; }
+@media (min-width: 640px) { .cases { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .cases { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.case { min-width: 0; display: grid; gap: 12px; }
+.case[hidden] { display: none; }
+.view { position: relative; background: var(--plate); aspect-ratio: 1; overflow: hidden; border-radius: 6px; cursor: zoom-in; border: 0; padding: 0; width: 100%; }
+.view img { width: 100%; height: 100%; object-fit: contain; transition: transform 1s var(--ease); }
+@media (hover: hover) { .view:hover img { transform: scale(1.06); } }
+.view .flip { position: absolute; right: 10px; bottom: 10px; display: flex; gap: 6px; }
+.view .flip i { width: 9px; height: 9px; border-radius: 50%; background: rgba(246,241,228,.35); }
+.view .flip i.on { background: var(--yellow); }
+.label { position: absolute; left: 10px; top: 10px; background: var(--yellow); color: var(--yellow-ink); padding: 5px 9px; border-radius: 3px; }
+.case-q { color: var(--muted); font-size: .9375rem; }
+.reveal { cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; padding: 11px 0; background: none; border: 0; border-top: 1px solid var(--line); color: var(--paper); font-weight: 600; text-align: left; }
+.reveal::after { content: "+"; font: 400 1.6rem/1 var(--display); color: var(--yellow); transition: transform .4s var(--ease); }
+.reveal[aria-expanded="true"]::after { transform: rotate(45deg); }
+.reveal:hover { color: var(--yellow); }
+.study .reveal { display: none; }
+.ans { display: grid; gap: 12px; }
+.ans[hidden] { display: none; }
+.study .ans[hidden] { display: grid !important; }
+.ans h3 { font: 500 clamp(1.6rem, 2.6vw, 2.1rem)/1.08 var(--display); letter-spacing: -.01em; text-wrap: balance; }
+.hosts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 14px; font-size: .9375rem; padding: 10px 12px; background: var(--navy); border-radius: 6px; }
+.hosts dt { color: var(--yellow); font: 600 .75rem/1.9 var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+.pts { display: grid; gap: 6px; }
+.pts li { padding-left: 18px; position: relative; font-size: .9875rem; line-height: 1.5; }
+.pts li::before { content: ""; position: absolute; left: 0; top: .6em; width: 8px; height: 8px; border-radius: 50%; border: 2px solid var(--red-text); }
+.key { font-size: .9375rem; color: var(--paper); border-left: 3px solid var(--red); padding: 4px 0 4px 12px; }
+.key b { color: var(--red-text); font-weight: 600; }
+
+/* Snail box photo */
+.imh { margin-top: 40px; display: grid; gap: 10px; }
+.imh img { border-radius: 6px; width: 100%; max-height: 420px; object-fit: cover; }
+.imh figcaption { color: var(--muted); font-size: .9375rem; }
+
+/* Look-alikes */
+.traps { background: var(--red); margin-top: clamp(70px, 9vw, 130px); padding-block: clamp(60px, 8vw, 110px); }
+.traps h2 em { color: var(--ink); }
+.traps .lede { color: #FFE3E5; }
+.pairs { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: 40px; }
+@media (min-width: 860px) { .pairs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pair { background: var(--ink); padding: clamp(20px, 3vw, 32px); border-radius: 8px; display: grid; gap: 10px; min-width: 0; }
+.pair h3 { font: 500 clamp(1.4rem, 2.4vw, 1.9rem)/1.1 var(--display); overflow-wrap: anywhere; }
+.pair h3 i { color: var(--red-text); font-style: italic; padding-inline: 4px; }
+.pair p { color: var(--muted); }
+
+/* Exam band */
+.exam { padding-block: clamp(60px, 8vw, 120px); background: var(--navy); }
+.exam-grid { display: grid; gap: 40px; margin-top: 40px; }
+@media (min-width: 900px) { .exam-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 56px; } }
+.opts { display: grid; gap: 22px; align-content: start; min-width: 0; }
+fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; min-width: 0; }
+legend { padding: 0 0 6px; color: var(--yellow); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chip span { display: block; cursor: pointer; padding: 8px 14px; border-radius: 999px; box-shadow: inset 0 0 0 1.5px var(--line); font-size: .9375rem; font-weight: 500; transition: background-color .2s, box-shadow .2s; }
+.chip span:hover { box-shadow: inset 0 0 0 1.5px var(--yellow); }
+.chip input:checked + span { background: var(--yellow); color: var(--yellow-ink); box-shadow: none; }
+.chip input:focus-visible + span { outline: 2px solid var(--yellow); outline-offset: 2px; }
+.pool { font: 500 1.3rem/1.3 var(--display); }
+.pool b { color: var(--yellow); }
+.how { display: grid; gap: 14px; align-content: start; min-width: 0; }
+.how h3 { font: 500 1.8rem/1.1 var(--display); }
+.how li { display: grid; grid-template-columns: 30px minmax(0, 1fr); padding-block: 10px; border-top: 1px solid var(--line); color: var(--muted); }
+.how li b { color: var(--paper); font-weight: 600; }
+.how li::before { content: attr(data-n); font: 600 .875rem/1.6 var(--mono); color: var(--yellow); }
+.history { margin-top: 10px; display: grid; gap: 6px; }
+.history li { display: flex; gap: 12px; flex-wrap: wrap; font-size: .9375rem; padding-block: 6px; border-top: 1px solid var(--line); }
+.history time { color: var(--muted); margin-left: auto; font-variant-numeric: tabular-nums; }
+.history .empty { color: var(--muted); }
+
+/* Index */
+.index { padding-block: clamp(60px, 8vw, 110px); }
+.idx-grid { display: grid; gap: 36px; margin-top: 36px; }
+@media (min-width: 700px) { .idx-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .idx-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.idx h3 { font: italic 500 1.5rem/1.1 var(--display); margin-bottom: 10px; color: var(--yellow); }
+.idx li a { display: flex; gap: 10px; padding-block: 5px; text-decoration: none; font-size: .9875rem; border-bottom: 1px solid var(--line); transition: color .2s; }
+.idx li a:hover { color: var(--yellow); }
+.idx li a span { margin-left: auto; color: var(--muted); }
+footer { padding-block: 40px; color: var(--muted); font-size: .9375rem; border-top: 1px solid var(--line); }
+footer .wrap { display: grid; gap: 8px; }
+
+/* Lightbox */
+.lightbox { position: fixed; inset: 0; z-index: 40; background: rgba(3,8,24,.94); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); cursor: zoom-out; }
+.lightbox img { max-height: 90vh; max-width: 100%; object-fit: contain; border-radius: 6px; }
+
+/* Exam room */
+html.in-room, html.in-room body { overflow: hidden; }
+.room { position: fixed; inset: 0; z-index: 30; background: var(--ink); overflow-y: auto; overscroll-behavior: contain; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.room-bar { position: sticky; top: 0; z-index: 2; background: var(--ink); border-bottom: 1px solid var(--line); }
+.room-bar .in { max-width: 1200px; margin-inline: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 10px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px)); }
+.spacer { flex: 1 1 0; }
+.clock { font: 600 1.6rem/1 var(--mono); font-variant-numeric: tabular-nums; color: var(--yellow); }
+.clock.urgent { color: var(--red-text); }
+.qcount { color: var(--muted); font: 600 .8125rem/1 var(--mono); }
+.dots { display: flex; flex-wrap: wrap; gap: 4px; max-width: 100%; }
+.dots button { width: 22px; height: 22px; border-radius: 50%; border: 0; cursor: pointer; background: var(--line); color: var(--paper); font: 600 .625rem/1 var(--mono); padding: 0; }
+.dots button.done { background: var(--muted); color: var(--ink); }
+.dots button.cur { background: var(--yellow); color: var(--yellow-ink); }
+.room-body { max-width: 1200px; margin-inline: auto; padding: 28px max(16px, env(safe-area-inset-right, 0px)) 64px max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 28px; }
+.q-card { display: grid; gap: 22px; min-width: 0; }
+@media (min-width: 900px) { .q-card { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; align-items: start; } }
+.q-img { background: var(--plate); border-radius: 8px; overflow: hidden; aspect-ratio: 1; display: grid; width: 100%; max-width: min(100%, 62vh); justify-self: center; }
+.q-img img { width: 100%; height: 100%; object-fit: contain; }
+.q-side { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.q-side h3 { font: 500 clamp(1.8rem, 4vw, 2.6rem)/1.05 var(--display); }
+.field { display: grid; gap: 6px; }
+.field label { color: var(--yellow); }
+.field input, .field textarea { width: 100%; background: var(--navy); color: var(--paper); border: 1.5px solid var(--line); border-radius: 6px; padding: 12px; font: 400 1rem/1.45 var(--body); resize: vertical; }
+.field input:focus, .field textarea:focus { border-color: var(--yellow); outline: none; }
+.field textarea { min-height: 170px; }
+.hint { color: var(--muted); font-size: .875rem; }
+.q-nav { display: flex; flex-wrap: wrap; gap: 10px; }
+.confirm { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; background: var(--red); color: #fff; padding: 12px 14px; border-radius: 8px; }
+.confirm p { flex: 1 1 220px; font-weight: 600; }
+.confirm .btn.alt { color: #fff; box-shadow: inset 0 0 0 1.5px #fff; }
+
+/* Feedback & results */
+.verdict { display: grid; gap: 10px; padding: 16px; border-radius: 8px; background: var(--navy); }
+.verdict .row { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+.mark { font: 700 .8125rem/1 var(--mono); padding: 5px 9px; border-radius: 3px; text-transform: uppercase; letter-spacing: .05em; }
+.mark.ok { background: var(--good); color: #032213; }
+.mark.half { background: var(--yellow); color: var(--yellow-ink); }
+.mark.no { background: var(--red); color: #fff; }
+.verdict h4 { font: 500 1.4rem/1.15 var(--display); }
+.got li::before { border-color: var(--good); background: var(--good); }
+.miss li::before { border-color: var(--red-text); }
+.yours { color: var(--muted); font-size: .9375rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.result-head { display: grid; gap: 12px; }
+.score { font: 500 clamp(4rem, 14vw, 9rem)/.9 var(--display); color: var(--yellow); font-variant-numeric: tabular-nums; }
+.score small { font-size: .35em; color: var(--muted); }
+.res-list { display: grid; gap: 22px; }
+.res { display: grid; gap: 16px; padding-top: 22px; border-top: 1px solid var(--line); }
+@media (min-width: 800px) { .res { grid-template-columns: 220px minmax(0, 1fr); } }
+.res img { width: 100%; max-width: 320px; aspect-ratio: 1; object-fit: contain; background: var(--plate); border-radius: 6px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  h1 span { animation: rise 1s var(--ease) both; }
+  h1 span + span { animation-delay: .12s; }
+  .pointer { animation: aim 1.4s var(--ease) .4s both; }
+  .lens img { animation: focus 1.8s var(--ease) both; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .view:hover img { transform: none; } }
+@keyframes rise { from { transform: translateY(40%); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes aim { from { transform: rotate(-80deg); } to { transform: rotate(-24deg); } }
+@keyframes focus { from { filter: blur(10px); transform: scale(1.25); } to { filter: none; transform: scale(1.08); } }
+
+/* The living sheet: a pen writes an answer, the examiner marks it, the page turns */
+.sheet-wrap { position: relative; perspective: 1200px; min-width: 0; width: min(100%, 500px); justify-self: center; }
+.sheet-stack { position: relative; }
+.sheet-stack::before, .sheet-stack::after { content: ""; position: absolute; inset: 6px -4px -6px 4px; background: #EFE8D6; transform: rotate(-1.6deg); box-shadow: 4px 4px 0 rgba(255,200,58,.55); }
+.sheet-stack::after { inset: 3px 3px -3px -2px; background: #F8F3E6; transform: rotate(.5deg); }
+.sheet { --ry: 0deg; --rx: 0deg; position: relative; z-index: 1; margin: 0; padding: 22px 24px 54px 46px; min-width: 0; background-color: #FFFCF3; color: #1B2547; transform: rotateX(var(--rx)) rotateY(var(--ry)) rotate(1.4deg); transform-origin: 50% 60%; transition: transform .35s ease-out, opacity .45s ease; box-shadow: 8px 8px 0 var(--yellow); background-image: repeating-linear-gradient(transparent 0 33px, rgba(12,28,74,.16) 33px 34px); background-position: 0 66px; }
+.sheet::before { content: ""; position: absolute; left: 32px; top: 0; bottom: 0; width: 1px; background: rgba(225,43,54,.5); }
+.sheet-head { display: flex; justify-content: space-between; gap: 12px; height: 44px; align-items: center; font: 600 .75rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: #3B466B; }
+.sheet p { height: 34px; line-height: 34px; display: flex; gap: 10px; white-space: nowrap; overflow: hidden; }
+.sheet small { flex: none; width: 58px; font: 600 .6875rem/34px var(--mono); text-transform: uppercase; letter-spacing: .05em; color: #6A7393; }
+.sheet .hand { font: 500 1.4375rem/34px "Caveat", "Segoe Script", cursive; color: #0C2A86; }
+.sheet .mark { position: absolute; right: 18px; top: 70px; width: 58px; height: 58px; overflow: visible; pointer-events: none; }
+.sheet .mark path { fill: none; stroke: var(--red); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.sheet .score { position: absolute; right: 16px; bottom: 14px; font: 600 1.85rem/1 "Caveat", "Segoe Script", cursive; color: var(--red); opacity: 1; transform: rotate(-4deg); transition: opacity .25s, transform .3s cubic-bezier(.3,1.6,.5,1); }
+.sheet.writing .score, .sheet .score:not(.on) { opacity: 0; transform: scale(1.5) rotate(-6deg); }
+.sheet .pen { position: absolute; left: 0; top: 0; width: 44px; height: 44px; pointer-events: none; opacity: 0; transition: opacity .25s; filter: drop-shadow(2px 3px 2px rgba(6,17,49,.35)); z-index: 3; }
+.sheet.writing .pen { opacity: 1; }
+.sheet.turn { transform: translate(-16%, -10%) rotate(-11deg) rotateY(-22deg); opacity: 0; transition: transform .5s ease-in, opacity .45s ease-in; }
+.sheet.arrive { transform: translateY(8px) rotate(.5deg); opacity: 0; transition: none; }
+.sheet-note { margin-top: 18px; font-size: .8125rem; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .sheet .score { opacity: 1; transform: rotate(-4deg); } .sheet .pen { display: none; } }
+@media (max-width: 480px) { .sheet { padding-left: 42px; padding-right: 14px; } .sheet .hand { font-size: 1.1875rem; } .sheet small { width: 48px; } .sheet .mark { right: 12px; width: 48px; height: 48px; } .sheet .pen { width: 36px; height: 36px; } }
+</style>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="#top"><i aria-hidden="true"></i>Para Specimens</a>
+  <nav aria-label="Chapters"><a href="#liver-flukes">Liver &amp; rumen flukes</a><a href="#gut-blood-flukes">Intestinal &amp; blood flukes</a><a href="#snails">Snails</a><a href="#taeniids">Taeniids &amp; Dipylidium</a><a href="#anoplocephalids">Ruminant &amp; horse tapeworms</a><a href="#poultry">Poultry &amp; rodent tapeworms</a><a href="#traps">Easily confused</a><a class="exam-link" href="#exam">Mock exam</a></nav>
+</div></header>
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div class="hero-copy">
+    <p class="tag kicker">Practical parasitology · Helminths</p>
+    <h1><span>Parasitology</span><span><em>Specimens</em></span></h1>
+    <p class="lede">Every slide, jar and snail from Sections 1 to 7, with the morphology from the Atlas of Helminthology, and mock exams that mark the name and the description for you.</p>
+    <div class="stats"><span><b>81</b>specimens</span><span><b>53</b>slides</span><span><b>15</b>jars</span><span><b>13</b>snails</span></div>
+    <div class="starts"><button type="button" class="btn" id="h-start">Start a mock exam</button><button type="button" class="btn alt" id="h-drill">Quick drill</button></div>
+  </div>
+  <div class="sheet-wrap">
+    <div class="sheet-stack"><figure class="sheet" aria-label="Example of a marked answer on an exam sheet">
+      <div class="sheet-head"><span>Mock exam</span><span id="s-q">Question 7</span></div>
+      <p><small>Name</small><span class="hand">Fasciola hepatica adult</span></p>
+      <p><small>Morph.</small><span class="hand">leaf shaped, short and broad</span></p>
+      <p><span class="hand">prominent shoulders, equal suckers</span></p>
+      <p><span class="hand">branched testes, tandem</span></p>
+      <svg class="mark" id="s-mark" viewBox="0 0 64 64" aria-hidden="true"><path id="s-tick" pathLength="1" d="M8 36 C14 42 20 50 25 56 C33 38 44 20 58 7"/><path id="s-cross" pathLength="1" d="M12 12 L52 54 M52 10 L12 56" style="display:none"/></svg>
+      <svg class="pen" id="s-pen" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 60 L12 42 L46 8 C49 5 54 5 57 8 C60 11 60 15 57 18 L23 52 Z" fill="#0C1C4A"/><path d="M4 60 L12 42 L23 52 Z" fill="#FFC83A"/><path d="M4 60 L8 51 L13 56 Z" fill="#061131"/><path d="M40 14 L51 25" stroke="#fff" stroke-opacity=".55" stroke-width="3"/></svg>
+      <span class="score on" id="s-score" aria-hidden="true">2 / 2</span>
+    </figure></div>
+    <p class="sheet-note">Example answers, not your work.</p>
+  </div>
+</div></section>
+
+<div class="controls"><div class="wrap">
+  <div class="seg" role="group" aria-label="Mode"><span class="tag">Mode</span><button type="button" data-mode="test">Test: answers hidden</button><button type="button" data-mode="study">Study: answers open</button></div>
+  <div class="seg" role="group" aria-label="Show"><span class="tag">Show</span><button type="button" data-kind="all">All</button><button type="button" data-kind="slide">Slides</button><button type="button" data-kind="jar">Jars</button><button type="button" data-kind="snail">Snails</button></div>
+  <span class="count-note" id="shown" aria-live="polite"></span>
+</div></div>
+
+<section class="chapter" id="liver-flukes"><div class="wrap">
+  <div class="ch-head"><div><p class="tag">Section 1 · 18 specimens</p><h2>Liver &amp; rumen flukes</h2></div><p class="lede">Fasciola, the amphistomes and Dicrocoelium, with the larval stages of Fasciola and Paramphistomum.</p></div>
+  <div class="cases"><article class="case" id="fasciola-gigantica-slide" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 1" src="img/fasciola-gigantica-slide.jpg"><span class="label tag">No. 01 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-fasciola-gigantica-slide"><span>Show the answer</span></button>
+  <div class="ans" id="a-fasciola-gigantica-slide" hidden>
+    <h3>Fasciola gigantica adult</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants, herbivores &amp; man</dd><dt>Habitat</dt><dd>Bile duct &amp; liver</dd><dt>IMH</dt><dd>Lymnaea (snail)</dd><dt>Infective stage</dt><dd>EMC on grass</dd><dt>Mode of infection</dt><dd>Per mouth</dd></dl>
+    <ul class="pts"><li>Leaf-like body with an anterior cone-shaped projection.</li><li>Cuticle with fine scales and spines.</li><li>Ventral sucker slightly larger than the oral sucker.</li><li>Intestinal caeca branched; the inner branch is T or Y shaped.</li><li>Two branched testes, tandem in position; ovary finely branched, anterior to the testes.</li><li>Vitelline glands are small follicles filling the whole lateral fields.</li></ul>
+    <p class="key"><b>Spot it:</b> Long leaf with two nearly parallel sides; longer than F. hepatica.</p>
+  </div>
+</article>
+<article class="case" id="fasciola-gigantica-jar" data-kind="jar">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="In jar specimen 2" src="img/fasciola-gigantica-jar.jpg"><span class="label tag">No. 02 · In jar</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-fasciola-gigantica-jar"><span>Show the answer</span></button>
+  <div class="ans" id="a-fasciola-gigantica-jar" hidden>
+    <h3>Fasciola gigantica adult</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants, herbivores &amp; man</dd><dt>Habitat</dt><dd>Bile duct &amp; liver</dd><dt>IMH</dt><dd>Lymnaea (snail)</dd><dt>Infective stage</dt><dd>EMC on grass</dd><dt>Mode of infection</dt><dd>Per mouth</dd></dl>
+    <ul class="pts"><li>Greyish brown when fresh.</li><li>Leaf-shaped body with an anterior cone-shaped projection.</li><li>The two sides are more or less parallel.</li><li>Ventral sucker at the level of the shoulders, slightly larger than the oral sucker.</li></ul>
+    <p class="key"><b>Spot it:</b> Long flukes with parallel sides; shoulders not prominent.</p>
+  </div>
+</article>
+<article class="case" id="fasciola-hepatica-slide" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 3" src="img/fasciola-hepatica-slide.jpg"><span class="label tag">No. 03 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-fasciola-hepatica-slide"><span>Show the answer</span></button>
+  <div class="ans" id="a-fasciola-hepatica-slide" hidden>
+    <h3>Fasciola hepatica adult</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants, herbivores &amp; man</dd><dt>Habitat</dt><dd>Bile duct &amp; liver</dd><dt>IMH</dt><dd>Lymnaea truncatula</dd><dt>Infective stage</dt><dd>EMC on grass</dd><dt>Mode of infection</dt><dd>Per mouth</dd></dl>
+    <ul class="pts"><li>Leaf-shaped and shorter than F. gigantica.</li><li>Shoulders more prominent; the two suckers nearly equal.</li><li>Inner branches of the caeca are small nodules.</li><li>Two branched testes, tandem; ovary finely branched, anterior to the testes.</li><li>Uterus convoluted, full of eggs, anterior to the testes, opening into the common genital pore.</li><li>Vitelline follicles fill the whole lateral fields.</li></ul>
+    <p class="key"><b>Spot it:</b> Short broad leaf with prominent shoulders; sides make a V.</p>
+  </div>
+</article>
+<article class="case" id="fasciola-hepatica-jar" data-kind="jar">
+  <button type="button" class="view" aria-label="Show the next photo"><img loading="lazy" alt="In jar specimen 4" src="img/fasciola-hepatica-jar.jpg"><img hidden loading="lazy" alt="In jar specimen 4" src="img/fasciola-hepatica-jar-2.jpg"><span class="label tag">No. 04 · In jar</span><span class="flip" aria-hidden="true"><i class="on"></i><i></i></span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-fasciola-hepatica-jar"><span>Show the answer</span></button>
+  <div class="ans" id="a-fasciola-hepatica-jar" hidden>
+    <h3>Fasciola hepatica adult</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants, herbivores &amp; man</dd><dt>Habitat</dt><dd>Bile duct &amp; liver</dd><dt>IMH</dt><dd>Lymnaea truncatula</dd><dt>Infective stage</dt><dd>EMC on grass</dd><dt>Mode of infection</dt><dd>Per mouth</dd></dl>
+    <ul class="pts"><li>Greyish brown when fresh.</li><li>Leaf-shaped, shorter than F. gigantica.</li><li>Shoulders more prominent.</li><li>The two sides make a V shape.</li><li>The two suckers are nearly equal.</li></ul>
+    <p class="key"><b>Spot it:</b> Short, broad, V-shaped flukes.</p>
+  </div>
+</article>
+<article class="case" id="paramphistomum-slide" data-kind="slide">
+  <button type="button" class="view" aria-label="Show the next photo"><img loading="lazy" alt="On slide specimen 5" src="img/paramphistomum-slide.jpg"><img hidden loading="lazy" alt="On slide specimen 5" src="img/paramphistomum-slide-2.jpg"><span class="label tag">No. 05 · On slide</span><span class="flip" aria-hidden="true"><i class="on"></i><i></i></span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-paramphistomum-slide"><span>Show the answer</span></button>
+  <div class="ans" id="a-paramphistomum-slide" hidden>
+    <h3>Paramphistomum spp. adult</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants</dd><dt>Habitat</dt><dd>Rumen (adult)</dd><dt>IMH</dt><dd>Bulinus truncatus, Biomphalaria alexandrina</dd><dt>Infective stage</dt><dd>EMC on grass</dd></dl>
+    <ul class="pts"><li>Pear-shaped with a smooth cuticle.</li><li>Fixation by an oral and a posterior sucker; no genital sucker.</li><li>Intestinal caeca simple, unbranched, reaching the posterior end.</li><li>Hermaphrodite; testes slightly lobulated, tandem.</li><li>Ovary small, posterior to the testes.</li><li>Vitelline glands lateral and extracaecal along the body length.</li></ul>
+    <p class="key"><b>Spot it:</b> Conical fluke with a big posterior sucker and no genital sucker.</p>
+  </div>
+</article>
+<article class="case" id="paramphistomum-jar" data-kind="jar">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="In jar specimen 6" src="img/paramphistomum-jar.jpg"><span class="label tag">No. 06 · In jar</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-paramphistomum-jar"><span>Show the answer</span></button>
+  <div class="ans" id="a-paramphistomum-jar" hidden>
+    <h3>Paramphistomum spp. adult</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants</dd><dt>Habitat</dt><dd>Rumen (adult)</dd><dt>IMH</dt><dd>Bulinus truncatus, Biomphalaria alexandrina</dd><dt>Infective stage</dt><dd>EMC on grass</dd></dl>
+    <ul class="pts"><li>Ruminal flukes (amphistomes).</li><li>Conical, medium-sized flukes, light red when fresh.</li><li>Pear-shaped, with a posterior sucker.</li></ul>
+    <p class="key"><b>Spot it:</b> Jar full of small pear- or rice-shaped flukes.</p>
+  </div>
+</article>
+<article class="case" id="cotylophoron" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 7" src="img/cotylophoron.jpg"><span class="label tag">No. 07 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-cotylophoron"><span>Show the answer</span></button>
+  <div class="ans" id="a-cotylophoron" hidden>
+    <h3>Cotylophoron cotylophorum adult</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants</dd><dt>Habitat</dt><dd>Rumen (adult)</dd></dl>
+    <ul class="pts"><li>Closely resembles Paramphistomum.</li><li>Has a genital sucker around the genital pore.</li></ul>
+    <p class="key"><b>Spot it:</b> Amphistome with a genital sucker around the genital pore.</p>
+  </div>
+</article>
+<article class="case" id="gastrodiscus-slide" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 8" src="img/gastrodiscus-slide.jpg"><span class="label tag">No. 08 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-gastrodiscus-slide"><span>Show the answer</span></button>
+  <div class="ans" id="a-gastrodiscus-slide" hidden>
+    <h3>Gastrodiscus aegyptiacus adult</h3>
+    <dl class="hosts"><dt>Habitat</dt><dd>Intestine (intestinal fluke)</dd><dt>IMH</dt><dd>Cleopatra bulimoides, C. cyclostomoides</dd></dl>
+    <ul class="pts"><li>Anterior part cylindrical, posterior part discoidal.</li><li>Ventral surface of the disc carries many tubercles or large papillae.</li><li>Oesophagus has two posterolateral pouches.</li><li>Oral and posterior sucker; no genital sucker.</li><li>Caeca simple, unbranched, to the posterior end.</li><li>Testes lobulated, diagonal; ovary posterior to them.</li><li>Vitelline glands lateral, extracaecal along the body.</li></ul>
+    <p class="key"><b>Spot it:</b> Small cylinder on a big papillated disc.</p>
+  </div>
+</article>
+<article class="case" id="gastrodiscus-jar" data-kind="jar">
+  <button type="button" class="view" aria-label="Show the next photo"><img loading="lazy" alt="In jar specimen 9" src="img/gastrodiscus-jar.jpg"><img hidden loading="lazy" alt="In jar specimen 9" src="img/gastrodiscus-jar-2.jpg"><span class="label tag">No. 09 · In jar</span><span class="flip" aria-hidden="true"><i class="on"></i><i></i></span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-gastrodiscus-jar"><span>Show the answer</span></button>
+  <div class="ans" id="a-gastrodiscus-jar" hidden>
+    <h3>Gastrodiscus aegyptiacus adult</h3>
+    <dl class="hosts"><dt>Habitat</dt><dd>Intestine (intestinal fluke)</dd></dl>
+    <ul class="pts"><li>Pink when fresh.</li><li>Body divided by a constriction into a small cylindrical anterior part and a large discoidal, ventrally concave posterior part.</li><li>The ventral sucker is relatively small and subterminal.</li></ul>
+    <p class="key"><b>Spot it:</b> Round discs with a small knob in front.</p>
+  </div>
+</article>
+<article class="case" id="carmyerius" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 10" src="img/carmyerius.jpg"><span class="label tag">No. 10 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-carmyerius"><span>Show the answer</span></button>
+  <div class="ans" id="a-carmyerius" hidden>
+    <h3>Carmyerius gregarius adult</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants</dd><dt>Habitat</dt><dd>Rumen (adult)</dd></dl>
+    <ul class="pts"><li>Closely resembles Paramphistomum.</li><li>Intestinal caeca simple, unbranched, reaching only the middle of the body.</li><li>Testes slightly lobulated and horizontal at the posterior part.</li></ul>
+    <p class="key"><b>Spot it:</b> Amphistome whose caeca stop at mid-body; testes side by side.</p>
+  </div>
+</article>
+<article class="case" id="dicrocoelium" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 11" src="img/dicrocoelium.jpg"><span class="label tag">No. 11 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-dicrocoelium"><span>Show the answer</span></button>
+  <div class="ans" id="a-dicrocoelium" hidden>
+    <h3>Dicrocoelium dendriticum adult</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants, herbivores, rabbit &amp; man</dd><dt>Habitat</dt><dd>Bile duct &amp; liver</dd><dt>Egg</dt><dd>Mature, does not hatch</dd><dt>1st IMH</dt><dd>Land snails (Helicella, Zebrina)</dd><dt>2nd IMH</dt><dd>Black ants</dd><dt>Infective stage</dt><dd>EMC in black ants</dd></dl>
+    <ul class="pts"><li>Elongated lancet-shaped body with a smooth cuticle.</li><li>Intestinal caeca simple, unbranched.</li><li>Testes slightly lobed, tandem.</li><li>Ovary directly behind the testes.</li><li>Vitelline glands occupy the middle third of the lateral fields.</li></ul>
+    <p class="key"><b>Spot it:</b> Small lancet with the testes in front of the ovary.</p>
+  </div>
+</article>
+<article class="case" id="fasciola-miracidium" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 12" src="img/fasciola-miracidium.jpg"><span class="label tag">No. 12 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-fasciola-miracidium"><span>Show the answer</span></button>
+  <div class="ans" id="a-fasciola-miracidium" hidden>
+    <h3>Fasciola spp. miracidium</h3>
+    
+    <ul class="pts"><li>Triangular in shape.</li><li>Broad anteriorly with a small papilliform protrusion.</li><li>Ciliated cuticle.</li><li>A pair of eye spots in the anterior half.</li><li>Penetrates the snail and changes into a sporocyst.</li></ul>
+    <p class="key"><b>Spot it:</b> Ciliated triangle with eye spots.</p>
+  </div>
+</article>
+<article class="case" id="fasciola-emc" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 13" src="img/fasciola-emc.jpg"><span class="label tag">No. 13 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-fasciola-emc"><span>Show the answer</span></button>
+  <div class="ans" id="a-fasciola-emc" hidden>
+    <h3>Fasciola spp. encysted metacercaria (EMC)</h3>
+    
+    <ul class="pts"><li>The infective stage of Fasciola.</li><li>Spherical cyst covered by a thick cyst wall.</li><li>Unclear internal structure.</li><li>Found on grass.</li></ul>
+    <p class="key"><b>Spot it:</b> Dark round cyst with a thick wall, on grass.</p>
+  </div>
+</article>
+<article class="case" id="fasciola-egg" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 14" src="img/fasciola-egg.jpg"><span class="label tag">No. 14 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-fasciola-egg"><span>Show the answer</span></button>
+  <div class="ans" id="a-fasciola-egg" hidden>
+    <h3>Fasciola spp. egg</h3>
+    
+    <ul class="pts"><li>Large and ovoid.</li><li>Golden yellow.</li><li>Thin, operculated shell.</li><li>Immature: one-cell embryo masked by several yolk cells.</li></ul>
+    <p class="key"><b>Spot it:</b> Large golden-yellow operculated egg, embryo hidden by yolk.</p>
+  </div>
+</article>
+<article class="case" id="paramphistomum-egg" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 15" src="img/paramphistomum-egg.jpg"><span class="label tag">No. 15 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-paramphistomum-egg"><span>Show the answer</span></button>
+  <div class="ans" id="a-paramphistomum-egg" hidden>
+    <h3>Paramphistomum spp. egg</h3>
+    
+    <ul class="pts"><li>Oval and large.</li><li>Thin shell, grey in colour.</li><li>Operculated.</li><li>Immature: one-cell embryo not masked by the yolk cells; develops and hatches in water.</li></ul>
+    <p class="key"><b>Spot it:</b> Large grey operculated egg with the embryo visible.</p>
+  </div>
+</article>
+<article class="case" id="fasciola-redia" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 16" src="img/fasciola-redia.jpg"><span class="label tag">No. 16 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-fasciola-redia"><span>Show the answer</span></button>
+  <div class="ans" id="a-fasciola-redia" hidden>
+    <h3>Fasciola spp. redia</h3>
+    
+    <ul class="pts"><li>Present inside the snail.</li><li>Elongated body with a muscular pharynx.</li><li>Head collar at the level of the pharynx.</li><li>Birth pore anteriorly.</li><li>Two lateral processes near the posterior end.</li><li>Body filled with germ balls, daughter rediae or cercariae.</li></ul>
+    <p class="key"><b>Spot it:</b> Sac with a pharynx, a collar and two posterior processes.</p>
+  </div>
+</article>
+<article class="case" id="fasciola-cercaria" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 17" src="img/fasciola-cercaria.jpg"><span class="label tag">No. 17 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-fasciola-cercaria"><span>Show the answer</span></button>
+  <div class="ans" id="a-fasciola-cercaria" hidden>
+    <h3>Fasciola spp. cercaria</h3>
+    
+    <ul class="pts"><li>Develops inside the redia in the snail.</li><li>Leptocercous type: body with a simple tail.</li><li>Body : tail = 1 : 3.</li><li>No eye spots.</li><li>Oral sucker, ventral sucker and muscular pharynx.</li><li>Two simple intestinal caeca.</li></ul>
+    <p class="key"><b>Spot it:</b> Round body, simple tail three times its length, no pigment.</p>
+  </div>
+</article>
+<article class="case" id="paramphistomum-cercaria" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 18" src="img/paramphistomum-cercaria.jpg"><span class="label tag">No. 18 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-paramphistomum-cercaria"><span>Show the answer</span></button>
+  <div class="ans" id="a-paramphistomum-cercaria" hidden>
+    <h3>Paramphistomum spp. cercaria</h3>
+    
+    <ul class="pts"><li>Leptocercous cercaria with a simple tail (body : tail = 1 : 3).</li><li>Oral sucker anteriorly, ventral sucker posteriorly (amphistome cercaria).</li><li>Two simple intestinal caeca.</li><li>Body and tail pigmented, so called cercaria pigmentata.</li></ul>
+    <p class="key"><b>Spot it:</b> Dark, pigmented body with the sucker at the back.</p>
+  </div>
+</article></div>
+</div></section>
+<section class="chapter" id="gut-blood-flukes"><div class="wrap">
+  <div class="ch-head"><div><p class="tag">Section 2 · 8 specimens</p><h2>Intestinal &amp; blood flukes</h2></div><p class="lede">Heterophyes, Schistosoma bovis and Echinostoma, adults and larvae.</p></div>
+  <div class="cases"><article class="case" id="heterophyes-adult" data-kind="slide">
+  <button type="button" class="view" aria-label="Show the next photo"><img loading="lazy" alt="On slide specimen 19" src="img/heterophyes-adult.jpg"><img hidden loading="lazy" alt="On slide specimen 19" src="img/heterophyes-adult-2.jpg"><span class="label tag">No. 19 · On slide</span><span class="flip" aria-hidden="true"><i class="on"></i><i></i></span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-heterophyes-adult"><span>Show the answer</span></button>
+  <div class="ans" id="a-heterophyes-adult" hidden>
+    <h3>Heterophyes heterophyes adult</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Man, dog &amp; cat</dd><dt>1st IMH</dt><dd>Pirenella conica (brackish-water snail)</dd><dt>2nd IMH</dt><dd>Fish</dd><dt>Infective stage</dt><dd>EMC in fish muscles</dd></dl>
+    <ul class="pts"><li>Pear-shaped, with all structures in the posterior part.</li><li>Cuticle covered with spines, especially anteriorly.</li><li>Fixation by an oral and a ventral sucker.</li><li>Common genital pore surrounded by a genital sucker.</li><li>Caeca simple, unbranched, reaching the end of the body.</li><li>Testes oval, smooth, horizontal at the posterior part; ovary anterior to them.</li><li>Vitelline glands lateral at the posterior part.</li></ul>
+    <p class="key"><b>Spot it:</b> Tiny pear-shaped fluke with a genital sucker beside the ventral sucker.</p>
+  </div>
+</article>
+<article class="case" id="heterophyes-egg" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 20" src="img/heterophyes-egg.jpg"><span class="label tag">No. 20 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-heterophyes-egg"><span>Show the answer</span></button>
+  <div class="ans" id="a-heterophyes-egg" hidden>
+    <h3>Heterophyes heterophyes egg</h3>
+    
+    <ul class="pts"><li>Oval and small.</li><li>Thick shell, yellow to brown.</li><li>Operculated.</li><li>Mature: contains a miracidium.</li><li>Does not hatch until eaten by the 1st IMH, Pirenella conica.</li></ul>
+    <p class="key"><b>Spot it:</b> Very small brown operculated egg, already embryonated.</p>
+  </div>
+</article>
+<article class="case" id="heterophyes-emc" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 21" src="img/heterophyes-emc.jpg"><span class="label tag">No. 21 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-heterophyes-emc"><span>Show the answer</span></button>
+  <div class="ans" id="a-heterophyes-emc" hidden>
+    <h3>Heterophyes heterophyes encysted metacercaria (EMC)</h3>
+    
+    <ul class="pts"><li>Found in fish muscles.</li><li>Spherical or oval cyst; the metacercaria is seen rolling inside.</li><li>The infective stage to the final host.</li></ul>
+    <p class="key"><b>Spot it:</b> Small cysts in fish muscle.</p>
+  </div>
+</article>
+<article class="case" id="schistosoma-male" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 22" src="img/schistosoma-male.jpg"><span class="label tag">No. 22 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-schistosoma-male"><span>Show the answer</span></button>
+  <div class="ans" id="a-schistosoma-male" hidden>
+    <h3>Schistosoma bovis adult male</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Cattle</dd><dt>Habitat</dt><dd>Portal &amp; mesenteric veins</dd><dt>Egg</dt><dd>Mature, hatches; spined, no operculum</dd><dt>IMH</dt><dd>Bulinus truncatus, Biomphalaria alexandrina</dd><dt>Cercaria</dt><dd>Furcocercous</dd><dt>Infective stage</dt><dd>Free-swimming cercaria</dd><dt>Mode of infection</dt><dd>Skin penetration</dd></dl>
+    <ul class="pts"><li>Small cylindrical anterior part and a flattened posterior part curved ventrally into the gynaecophoric canal, where the female lies.</li><li>Cuticle spined ventrally with small tubercles dorsally.</li><li>Oral and ventral suckers pedunculated.</li><li>Intestine bifurcates and reunites one or several times backwards.</li><li>Testes 3 to 6 (usually 4) in a longitudinal row, a short distance behind the ventral sucker.</li></ul>
+    <p class="key"><b>Spot it:</b> Stout worm folded into a C, with a gynaecophoric canal.</p>
+  </div>
+</article>
+<article class="case" id="schistosoma-female" data-kind="slide">
+  <button type="button" class="view" aria-label="Show the next photo"><img loading="lazy" alt="On slide specimen 23" src="img/schistosoma-female.jpg"><img hidden loading="lazy" alt="On slide specimen 23" src="img/schistosoma-female-2.jpg"><span class="label tag">No. 23 · On slide</span><span class="flip" aria-hidden="true"><i class="on"></i><i></i></span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-schistosoma-female"><span>Show the answer</span></button>
+  <div class="ans" id="a-schistosoma-female" hidden>
+    <h3>Schistosoma bovis adult female</h3>
+    
+    <ul class="pts"><li>Long and cylindrical, thread-like.</li><li>Smooth cuticle.</li><li>Oral and ventral suckers weak and close to each other.</li><li>Intestine bifurcates then reunites into one tube.</li><li>Ovary at the middle of the body.</li><li>Uterus straight, running forwards.</li></ul>
+    <p class="key"><b>Spot it:</b> Long thin thread, much slimmer than the male.</p>
+  </div>
+</article>
+<article class="case" id="schistosoma-cercaria" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 24" src="img/schistosoma-cercaria.jpg"><span class="label tag">No. 24 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-schistosoma-cercaria"><span>Show the answer</span></button>
+  <div class="ans" id="a-schistosoma-cercaria" hidden>
+    <h3>Schistosoma spp. cercaria</h3>
+    
+    <ul class="pts"><li>Furcocercous cercaria (forked tail).</li><li>Body : tail = 1 : 3.</li><li>Armed with spines.</li><li>Four pairs of cephalic (penetration) glands, two acidophilic and two basophilic.</li><li>Does not form an EMC.</li></ul>
+    <p class="key"><b>Spot it:</b> The tail splits into a fork.</p>
+  </div>
+</article>
+<article class="case" id="echinostoma-adult" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 25" src="img/echinostoma-adult.jpg"><span class="label tag">No. 25 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-echinostoma-adult"><span>Show the answer</span></button>
+  <div class="ans" id="a-echinostoma-adult" hidden>
+    <h3>Echinostoma revolutum adult</h3>
+    <dl class="hosts"><dt>1st IMH</dt><dd>Physa acuta, Melania tuberculata</dd><dt>Hosts</dt><dd>Aquatic birds</dd></dl>
+    <ul class="pts"><li>Elongated, with a spiny cuticle anteriorly.</li><li>Oral sucker surrounded by a fleshy horseshoe-shaped head collar carrying 37 spines.</li><li>Wide ventral sucker.</li><li>Caeca simple, reaching the end of the body.</li><li>Testes tandem, oval or slightly lobed, behind the middle.</li><li>Ovary and uterus anterior to the testes.</li><li>Vitelline glands lateral and extracaecal.</li></ul>
+    <p class="key"><b>Spot it:</b> Head collar of 37 spines round the oral sucker.</p>
+  </div>
+</article>
+<article class="case" id="echinostoma-cercaria" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 26" src="img/echinostoma-cercaria.jpg"><span class="label tag">No. 26 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-echinostoma-cercaria"><span>Show the answer</span></button>
+  <div class="ans" id="a-echinostoma-cercaria" hidden>
+    <h3>Echinostoma revolutum cercaria</h3>
+    
+    <ul class="pts"><li>Leptocercous, with a simple short tail.</li><li>Body : tail = 1 : 1.</li><li>Oral sucker surrounded by a head collar with spines.</li></ul>
+    <p class="key"><b>Spot it:</b> Tail as long as the body; spined collar.</p>
+  </div>
+</article></div>
+</div></section>
+<section class="chapter" id="snails"><div class="wrap">
+  <div class="ch-head"><div><p class="tag">Sections 1 &amp; 2 · 13 specimens</p><h2>Snails</h2></div><p class="lede">The dried snails that act as intermediate hosts. Know the shell, the coiling and which fluke uses it.</p></div>
+  <div class="cases"><article class="case" id="lymnaea-stagnalis" data-kind="snail">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="Dried snail specimen 27" src="img/lymnaea-stagnalis.jpg"><span class="label tag">No. 27 · Dried snail</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-lymnaea-stagnalis"><span>Show the answer</span></button>
+  <div class="ans" id="a-lymnaea-stagnalis" hidden>
+    <h3>Lymnaea stagnalis snail</h3>
+    
+    <ul class="pts"><li>Fresh-water snail.</li><li>Right-handed (dextral).</li><li>Thick shell.</li><li>Large, with a pointed apex.</li><li>Large oval aperture.</li></ul>
+    <p class="key"><b>Spot it:</b> Big right-handed shell, pointed apex, wide aperture.</p>
+  </div>
+</article>
+<article class="case" id="lymnaea-truncatula" data-kind="snail">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="Dried snail specimen 28" src="img/lymnaea-truncatula.jpg"><span class="label tag">No. 28 · Dried snail</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-lymnaea-truncatula"><span>Show the answer</span></button>
+  <div class="ans" id="a-lymnaea-truncatula" hidden>
+    <h3>Lymnaea truncatula snail</h3>
+    <dl class="hosts"><dt>Role</dt><dd>IMH of Fasciola hepatica</dd></dl>
+    <ul class="pts"><li>Amphibian, fresh-water related snail.</li><li>Right-handed.</li><li>Brown to dark.</li><li>Thick shell.</li><li>Resembles L. stagnalis but small; the opening is not more than half the shell length.</li></ul>
+    <p class="key"><b>Spot it:</b> Several tiny dark right-handed shells.</p>
+  </div>
+</article>
+<article class="case" id="lymnaea-cailliaudi" data-kind="snail">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="Dried snail specimen 29" src="img/lymnaea-cailliaudi.jpg"><span class="label tag">No. 29 · Dried snail</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-lymnaea-cailliaudi"><span>Show the answer</span></button>
+  <div class="ans" id="a-lymnaea-cailliaudi" hidden>
+    <h3>Lymnaea cailliaudi snail</h3>
+    <dl class="hosts"><dt>Role</dt><dd>IMH of Fasciola gigantica</dd></dl>
+    <ul class="pts"><li>Fresh-water snail.</li><li>Right-handed (dextral).</li><li>Thin fragile shell.</li><li>Pointed apex.</li><li>Large body whorl.</li><li>Large oval aperture.</li></ul>
+    <p class="key"><b>Spot it:</b> Thin fragile shell almost all body whorl.</p>
+  </div>
+</article>
+<article class="case" id="zebrina" data-kind="snail">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="Dried snail specimen 30" src="img/zebrina.jpg"><span class="label tag">No. 30 · Dried snail</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-zebrina"><span>Show the answer</span></button>
+  <div class="ans" id="a-zebrina" hidden>
+    <h3>Zebrina snail</h3>
+    <dl class="hosts"><dt>Role</dt><dd>1st IMH of Dicrocoelium</dd></dl>
+    <ul class="pts"><li>Land snail.</li><li>Right-handed.</li><li>Thick shell with distinct sutures.</li><li>Conical, with longitudinal stripes.</li><li>Aperture is 1/4 of the total length.</li><li>Blunt apex.</li></ul>
+    <p class="key"><b>Spot it:</b> Pair of white conical land snails with stripes.</p>
+  </div>
+</article>
+<article class="case" id="helicella" data-kind="snail">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="Dried snail specimen 31" src="img/helicella.jpg"><span class="label tag">No. 31 · Dried snail</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-helicella"><span>Show the answer</span></button>
+  <div class="ans" id="a-helicella" hidden>
+    <h3>Helicella snail</h3>
+    <dl class="hosts"><dt>Role</dt><dd>1st IMH of Dicrocoelium</dd></dl>
+    <ul class="pts"><li>Land snail.</li><li>Right-handed.</li><li>Thick shell.</li><li>Button-shaped with a blunt apex and raised centre.</li><li>Deep umbilicus.</li></ul>
+    <p class="key"><b>Spot it:</b> Flattened button shell with a deep umbilicus.</p>
+  </div>
+</article>
+<article class="case" id="cleopatra-bulimoides" data-kind="snail">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="Dried snail specimen 32" src="img/cleopatra-bulimoides.jpg"><span class="label tag">No. 32 · Dried snail</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-cleopatra-bulimoides"><span>Show the answer</span></button>
+  <div class="ans" id="a-cleopatra-bulimoides" hidden>
+    <h3>Cleopatra bulimoides snail</h3>
+    <dl class="hosts"><dt>Role</dt><dd>IMH of Gastrodiscus aegyptiacus</dd></dl>
+    <ul class="pts"><li>Fresh-water snail.</li><li>Right-handed.</li><li>Blunt apex.</li><li>Brown.</li><li>Oblique whorls with spiral dark bands.</li></ul>
+    <p class="key"><b>Spot it:</b> Small brown right-handed shell with dark bands.</p>
+  </div>
+</article>
+<article class="case" id="cleopatra-cyclostomoides" data-kind="snail">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="Dried snail specimen 33" src="img/cleopatra-cyclostomoides.jpg"><span class="label tag">No. 33 · Dried snail</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-cleopatra-cyclostomoides"><span>Show the answer</span></button>
+  <div class="ans" id="a-cleopatra-cyclostomoides" hidden>
+    <h3>Cleopatra cyclostomoides snail</h3>
+    <dl class="hosts"><dt>Role</dt><dd>IMH of Gastrodiscus aegyptiacus</dd></dl>
+    <ul class="pts"><li>Resembles Cleopatra bulimoides but whitish in colour.</li></ul>
+    <p class="key"><b>Spot it:</b> Like C. bulimoides, but whitish.</p>
+  </div>
+</article>
+<article class="case" id="biomphalaria" data-kind="snail">
+  <button type="button" class="view" aria-label="Show the next photo"><img loading="lazy" alt="Dried snail specimen 34" src="img/biomphalaria.jpg"><img hidden loading="lazy" alt="Dried snail specimen 34" src="img/biomphalaria-2.jpg"><span class="label tag">No. 34 · Dried snail</span><span class="flip" aria-hidden="true"><i class="on"></i><i></i></span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-biomphalaria"><span>Show the answer</span></button>
+  <div class="ans" id="a-biomphalaria" hidden>
+    <h3>Biomphalaria alexandrina snail</h3>
+    <dl class="hosts"><dt>Role</dt><dd>IMH of Schistosoma and the amphistomes</dd></dl>
+    <ul class="pts"><li>Fresh-water snail.</li><li>Left-handed.</li><li>Button-shaped with a depressed centre.</li><li>Smooth shell.</li></ul>
+    <p class="key"><b>Spot it:</b> Flat coiled disc, depressed in the centre.</p>
+  </div>
+</article>
+<article class="case" id="bulinus" data-kind="snail">
+  <button type="button" class="view" aria-label="Show the next photo"><img loading="lazy" alt="Dried snail specimen 35" src="img/bulinus.jpg"><img hidden loading="lazy" alt="Dried snail specimen 35" src="img/bulinus-2.jpg"><span class="label tag">No. 35 · Dried snail</span><span class="flip" aria-hidden="true"><i class="on"></i><i></i></span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-bulinus"><span>Show the answer</span></button>
+  <div class="ans" id="a-bulinus" hidden>
+    <h3>Bulinus truncatus snail</h3>
+    <dl class="hosts"><dt>Role</dt><dd>IMH of Schistosoma bovis and Paramphistomum</dd></dl>
+    <ul class="pts"><li>Fresh-water snail.</li><li>Left-handed.</li><li>Blunt apex.</li><li>Smooth shell.</li></ul>
+    <p class="key"><b>Spot it:</b> Small left-handed shell with a blunt apex.</p>
+  </div>
+</article>
+<article class="case" id="pirenella" data-kind="snail">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="Dried snail specimen 36" src="img/pirenella.jpg"><span class="label tag">No. 36 · Dried snail</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-pirenella"><span>Show the answer</span></button>
+  <div class="ans" id="a-pirenella" hidden>
+    <h3>Pirenella conica snail</h3>
+    <dl class="hosts"><dt>Role</dt><dd>1st IMH of Heterophyes heterophyes</dd></dl>
+    <ul class="pts"><li>Brackish-water snail.</li><li>Right-handed.</li><li>Conical with a sharp apex.</li><li>Less oblique whorls.</li><li>Thick shell with coarse ornamentation: large, few tubercles in one to four rows.</li><li>Has a siphonal notch.</li></ul>
+    <p class="key"><b>Spot it:</b> Tall dark cone with coarse tubercles and a siphonal notch.</p>
+  </div>
+</article>
+<article class="case" id="physa" data-kind="snail">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="Dried snail specimen 37" src="img/physa.jpg"><span class="label tag">No. 37 · Dried snail</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-physa"><span>Show the answer</span></button>
+  <div class="ans" id="a-physa" hidden>
+    <h3>Physa acuta snail</h3>
+    <dl class="hosts"><dt>Role</dt><dd>1st IMH of Echinostoma revolutum</dd></dl>
+    <ul class="pts"><li>Fresh-water snail.</li><li>Left-handed.</li><li>Less oblique whorls.</li><li>Pointed apex.</li></ul>
+    <p class="key"><b>Spot it:</b> Small left-handed shell with a pointed apex.</p>
+  </div>
+</article>
+<article class="case" id="melania" data-kind="snail">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="Dried snail specimen 38" src="img/melania.jpg"><span class="label tag">No. 38 · Dried snail</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-melania"><span>Show the answer</span></button>
+  <div class="ans" id="a-melania" hidden>
+    <h3>Melania tuberculata snail</h3>
+    <dl class="hosts"><dt>Role</dt><dd>1st IMH of Echinostoma revolutum</dd></dl>
+    <ul class="pts"><li>Fresh-water snail.</li><li>Right-handed.</li><li>Conical.</li><li>Ornamented shell with fine tubercles, small and many.</li><li>No siphonal notch.</li></ul>
+    <p class="key"><b>Spot it:</b> Tall cone with fine tubercles and no siphonal notch.</p>
+  </div>
+</article>
+<article class="case" id="vivipara" data-kind="snail">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="Dried snail specimen 39" src="img/vivipara.jpg"><span class="label tag">No. 39 · Dried snail</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-vivipara"><span>Show the answer</span></button>
+  <div class="ans" id="a-vivipara" hidden>
+    <h3>Vivipara spp. snail</h3>
+    
+    <ul class="pts"><li>Fresh-water snail.</li><li>Right-handed.</li><li>Sharp apex.</li><li>Smooth shell with deep sutures.</li><li>A small deep umbilicus.</li></ul>
+    <p class="key"><b>Spot it:</b> Smooth globular shell, deep sutures.</p>
+  </div>
+</article></div><figure class="imh"><img loading="lazy" alt="Display box of all the snail intermediate hosts" src="img/imh-box.jpg"><figcaption>The display box of intermediate hosts for all trematodes, as shown in Section 2.</figcaption></figure>
+</div></section>
+<section class="chapter" id="taeniids"><div class="wrap">
+  <div class="ch-head"><div><p class="tag">Sections 3 &amp; 4 · 21 specimens</p><h2>Taeniids &amp; Dipylidium</h2></div><p class="lede">Taenia of man and dog, their bladder worms, Echinococcus and Dipylidium, with Diphyllobothrium.</p></div>
+  <div class="cases"><article class="case" id="diphyllobothrium-mature" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 40" src="img/diphyllobothrium-mature.jpg"><span class="label tag">No. 40 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-diphyllobothrium-mature"><span>Show the answer</span></button>
+  <div class="ans" id="a-diphyllobothrium-mature" hidden>
+    <h3>Diphyllobothrium latum mature segment</h3>
+    
+    <ul class="pts"><li>Squarish to broader than long.</li><li>Ovary bilobed, posterior in the segment.</li><li>Testes and vitelline glands in the mixed lateral fields.</li><li>Uterus a dark central coiled tube, rosette-shaped, full of eggs.</li><li>Uterine pore present ventrally.</li><li>Common genital pore ventral, anterior to the uterine pore.</li></ul>
+    <p class="key"><b>Spot it:</b> Central dark rosette uterus with a ventral pore.</p>
+  </div>
+</article>
+<article class="case" id="taenia-man-jar" data-kind="jar">
+  <button type="button" class="view" aria-label="Show the next photo"><img loading="lazy" alt="In jar specimen 41" src="img/taenia-man-jar.jpg"><img hidden loading="lazy" alt="In jar specimen 41" src="img/taenia-man-jar-2.jpg"><span class="label tag">No. 41 · In jar</span><span class="flip" aria-hidden="true"><i class="on"></i><i></i></span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-taenia-man-jar"><span>Show the answer</span></button>
+  <div class="ans" id="a-taenia-man-jar" hidden>
+    <h3>Taenia spp. of man</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Man</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Cattle (T. saginata), man &amp; pig (T. solium)</dd></dl>
+    <ul class="pts"><li>Whole worm 4 to 8 metres long (rarely 10).</li><li>Mature segments are squarish.</li><li>Gravid segments are longer than broad.</li><li>Genital pores single, irregularly alternating.</li></ul>
+    <p class="key"><b>Spot it:</b> Long ribbon of segments; gravid ones longer than broad.</p>
+  </div>
+</article>
+<article class="case" id="taenia-saginata-scolex" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 42" src="img/taenia-saginata-scolex.jpg"><span class="label tag">No. 42 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-taenia-saginata-scolex"><span>Show the answer</span></button>
+  <div class="ans" id="a-taenia-saginata-scolex" hidden>
+    <h3>Taenia saginata scolex</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Man</dd><dt>IMH</dt><dd>Cattle</dd><dt>Larval stage</dt><dd>Cysticercus bovis</dd></dl>
+    <ul class="pts"><li>Quadrate and large.</li><li>Four cup-shaped suckers.</li><li>No rostellum, no hooks.</li></ul>
+    <p class="key"><b>Spot it:</b> Square head, four suckers, unarmed.</p>
+  </div>
+</article>
+<article class="case" id="taenia-solium-scolex" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 43" src="img/taenia-solium-scolex.jpg"><span class="label tag">No. 43 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-taenia-solium-scolex"><span>Show the answer</span></button>
+  <div class="ans" id="a-taenia-solium-scolex" hidden>
+    <h3>Taenia solium scolex</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Man</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Man &amp; pig</dd><dt>Larval stage</dt><dd>Cysticercus cellulosae</dd><dt>Infective stage</dt><dd>C. cellulosae in muscle</dd><dt>Mode of infection</dt><dd>Per mouth</dd></dl>
+    <ul class="pts"><li>Globular, with four cup-shaped suckers.</li><li>A rostellum carrying two crowns of taenioid hooks (22 to 32).</li></ul>
+    <p class="key"><b>Spot it:</b> Round head with a hooked rostellum.</p>
+  </div>
+</article>
+<article class="case" id="taenia-mature" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 44" src="img/taenia-mature.jpg"><span class="label tag">No. 44 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-taenia-mature"><span>Show the answer</span></button>
+  <div class="ans" id="a-taenia-mature" hidden>
+    <h3>Taenia spp. mature segment</h3>
+    
+    <ul class="pts"><li>Nearly squarish.</li><li>Ovary bilobed, posterior.</li><li>Vitelline gland a compact mass behind the ovary.</li><li>Testes distributed all over the segment.</li><li>Uterus a simple blind tube with no uterine pore.</li><li>Common genital pore unilateral, irregularly alternating.</li></ul>
+    <p class="key"><b>Spot it:</b> Square segment, bilobed ovary, single lateral pore.</p>
+  </div>
+</article>
+<article class="case" id="taenia-gravid" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 45" src="img/taenia-gravid.jpg"><span class="label tag">No. 45 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-taenia-gravid"><span>Show the answer</span></button>
+  <div class="ans" id="a-taenia-gravid" hidden>
+    <h3>Taenia spp. gravid segment</h3>
+    
+    <ul class="pts"><li>Longer than broad.</li><li>Uterus becomes a longitudinal stem with 15 to 20 main lateral branches on each side.</li><li>Other organs atrophied.</li></ul>
+    <p class="key"><b>Spot it:</b> Long segment with a branched uterus.</p>
+  </div>
+</article>
+<article class="case" id="taenia-egg" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 46" src="img/taenia-egg.jpg"><span class="label tag">No. 46 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-taenia-egg"><span>Show the answer</span></button>
+  <div class="ans" id="a-taenia-egg" hidden>
+    <h3>Taenia spp. egg</h3>
+    
+    <ul class="pts"><li>Brownish.</li><li>Globular, with a double-contoured, radially striated embryophore.</li><li>Mature eggs contain a hexacanth embryo.</li></ul>
+    <p class="key"><b>Spot it:</b> Round brown egg with a striated shell.</p>
+  </div>
+</article>
+<article class="case" id="cysticercus-bovis" data-kind="jar">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="In jar specimen 47" src="img/cysticercus-bovis.jpg"><span class="label tag">No. 47 · In jar</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-cysticercus-bovis"><span>Show the answer</span></button>
+  <div class="ans" id="a-cysticercus-bovis" hidden>
+    <h3>Cysticercus bovis</h3>
+    <dl class="hosts"><dt>Host</dt><dd>Cattle</dd><dt>Habitat</dt><dd>Intermuscular connective tissue of heavy muscles (shoulder, thigh), liver, tongue &amp; heart</dd><dt>Adult</dt><dd>Taenia saginata</dd></dl>
+    <ul class="pts"><li>Whitish bladder-like cyst of different sizes.</li><li>Spherical or elliptical, semi-transparent wall, some cystic fluid.</li><li>Each cyst has one macroscopic invaginated scolex.</li><li>On a slide: four suckers, no hooks and no rostellum.</li></ul>
+    <p class="key"><b>Spot it:</b> Small cysts in beef muscle.</p>
+  </div>
+</article>
+<article class="case" id="cysticercus-cellulosae" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 48" src="img/cysticercus-cellulosae.jpg"><span class="label tag">No. 48 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-cysticercus-cellulosae"><span>Show the answer</span></button>
+  <div class="ans" id="a-cysticercus-cellulosae" hidden>
+    <h3>Cysticercus cellulosae</h3>
+    <dl class="hosts"><dt>Host</dt><dd>Man &amp; pig</dd><dt>Habitat</dt><dd>Intermuscular connective tissue of heavy muscles, liver, tongue &amp; heart</dd><dt>Adult</dt><dd>Taenia solium</dd></dl>
+    <ul class="pts"><li>Bladder-like cyst with one invaginated scolex with four suckers.</li><li>Rostellum armed with 2 rows of taenioid hooks.</li></ul>
+    <p class="key"><b>Spot it:</b> Invaginated scolex with a hooked rostellum.</p>
+  </div>
+</article>
+<article class="case" id="coenurus-slide" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 49" src="img/coenurus-slide.jpg"><span class="label tag">No. 49 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-coenurus-slide"><span>Show the answer</span></button>
+  <div class="ans" id="a-coenurus-slide" hidden>
+    <h3>Coenurus serialis</h3>
+    <dl class="hosts"><dt>Adult</dt><dd>Multiceps serialis of dogs</dd><dt>Habitat</dt><dd>Intermuscular &amp; subcutaneous tissue of rabbits</dd></dl>
+    <ul class="pts"><li>Larval stage of Multiceps serialis.</li><li>Transparent wall.</li><li>Numerous macroscopic invaginated scolices arranged in lines (serially).</li></ul>
+    <p class="key"><b>Spot it:</b> Many scolices in rows inside one cyst.</p>
+  </div>
+</article>
+<article class="case" id="cysticercus-tenuicollis" data-kind="jar">
+  <button type="button" class="view" aria-label="Show the next photo"><img loading="lazy" alt="In jar specimen 50" src="img/cysticercus-tenuicollis.jpg"><img hidden loading="lazy" alt="In jar specimen 50" src="img/cysticercus-tenuicollis-2.jpg"><span class="label tag">No. 50 · In jar</span><span class="flip" aria-hidden="true"><i class="on"></i><i></i></span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-cysticercus-tenuicollis"><span>Show the answer</span></button>
+  <div class="ans" id="a-cysticercus-tenuicollis" hidden>
+    <h3>Cysticercus tenuicollis</h3>
+    <dl class="hosts"><dt>Adult</dt><dd>Taenia hydatigena of dogs</dd><dt>Habitat</dt><dd>Peritoneal cavity &amp; liver of sheep, cattle and wild ruminants</dd></dl>
+    <ul class="pts"><li>Large (1 to 7 cm in diameter).</li><li>Bladder-like, with a semi-transparent wall.</li><li>Large amount of cystic fluid.</li><li>Long neck with one invaginated scolex.</li></ul>
+    <p class="key"><b>Spot it:</b> Big water bladder with one long-necked scolex.</p>
+  </div>
+</article>
+<article class="case" id="taenia-dog-jar" data-kind="jar">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="In jar specimen 51" src="img/taenia-dog-jar.jpg"><span class="label tag">No. 51 · In jar</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-taenia-dog-jar"><span>Show the answer</span></button>
+  <div class="ans" id="a-taenia-dog-jar" hidden>
+    <h3>Taenia spp. of dog</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Dog</dd></dl>
+    <ul class="pts"><li>Smaller than the Taenia of man.</li><li>Mature segments squarish; gravid ones longer than broad.</li><li>Rostellum armed with a double crown of taenioid hooks.</li></ul>
+    <p class="key"><b>Spot it:</b> Tangle of tapeworms smaller than the human ones.</p>
+  </div>
+</article>
+<article class="case" id="cysticercus-fasciolaris" data-kind="jar">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="In jar specimen 52" src="img/cysticercus-fasciolaris.jpg"><span class="label tag">No. 52 · In jar</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-cysticercus-fasciolaris"><span>Show the answer</span></button>
+  <div class="ans" id="a-cysticercus-fasciolaris" hidden>
+    <h3>Cysticercus fasciolaris</h3>
+    <dl class="hosts"><dt>Adult</dt><dd>Taenia taeniaeformis of cats</dd><dt>Habitat</dt><dd>Liver of rats and mice</dd></dl>
+    <ul class="pts"><li>Small vesicle attached to a long pseudo-segmented neck.</li><li>Scolex with a rostellum carrying two crowns of taenioid hooks.</li></ul>
+    <p class="key"><b>Spot it:</b> Small bladder on a long segmented-looking neck.</p>
+  </div>
+</article>
+<article class="case" id="echinococcus" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 53" src="img/echinococcus.jpg"><span class="label tag">No. 53 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-echinococcus"><span>Show the answer</span></button>
+  <div class="ans" id="a-echinococcus" hidden>
+    <h3>Echinococcus granulosus whole worm</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Dog</dd><dt>Larval stage</dt><dd>Hydatid cyst</dd></dl>
+    <ul class="pts"><li>Strobila of 3 to 4 (usually 3) segments: one immature, one mature, the third gravid.</li><li>Genital pores single, irregularly alternating.</li><li>Very small scolex with four suckers and a rostellum with 2 crowns of taenioid hooks.</li><li>Mature segment like Taenia but longer than broad.</li><li>Gravid segment longer than broad; uterus with lateral pouches full of eggs.</li></ul>
+    <p class="key"><b>Spot it:</b> A whole worm of only three segments.</p>
+  </div>
+</article>
+<article class="case" id="hydatid-cyst" data-kind="jar">
+  <button type="button" class="view" aria-label="Show the next photo"><img loading="lazy" alt="In jar specimen 54" src="img/hydatid-cyst.jpg"><img hidden loading="lazy" alt="In jar specimen 54" src="img/hydatid-cyst-2.jpg"><span class="label tag">No. 54 · In jar</span><span class="flip" aria-hidden="true"><i class="on"></i><i></i></span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-hydatid-cyst"><span>Show the answer</span></button>
+  <div class="ans" id="a-hydatid-cyst" hidden>
+    <h3>Hydatid cyst</h3>
+    <dl class="hosts"><dt>Adult</dt><dd>Echinococcus granulosus of dogs</dd><dt>Habitat</dt><dd>Any organ, mainly lungs and liver, of any mammal except dogs</dd></dl>
+    <ul class="pts"><li>Hen's egg to child's head in size.</li><li>Large spherical or ovoid cyst with an opaque thick fibrous wall.</li><li>Large amount of cystic fluid.</li><li>Many scolices on the germinal layer, in brood capsules, daughter cysts or free in the fluid (hydatid sand).</li></ul>
+    <p class="key"><b>Spot it:</b> Thick-walled cysts in an organ.</p>
+  </div>
+</article>
+<article class="case" id="hydatid-sand" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 55" src="img/hydatid-sand.jpg"><span class="label tag">No. 55 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-hydatid-sand"><span>Show the answer</span></button>
+  <div class="ans" id="a-hydatid-sand" hidden>
+    <h3>Hydatid sand</h3>
+    
+    <ul class="pts"><li>A group of microscopic scolices and brood capsules swimming in the hydatid fluid.</li><li>Scolices with invaginated heads provided with several hooks.</li></ul>
+    <p class="key"><b>Spot it:</b> Many small scolices scattered in fluid.</p>
+  </div>
+</article>
+<article class="case" id="dipylidium-scolex" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 56" src="img/dipylidium-scolex.jpg"><span class="label tag">No. 56 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-dipylidium-scolex"><span>Show the answer</span></button>
+  <div class="ans" id="a-dipylidium-scolex" hidden>
+    <h3>Dipylidium caninum scolex</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Dog, fox, cat, rarely man</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Flea of man, dog &amp; cat; dog louse</dd><dt>Larval stage</dt><dd>Cryptocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Comparatively small.</li><li>Four suckers.</li><li>Protrusible, retractable rostellum armed with rose-thorn-shaped hooks in 3 to 7 spiral rows.</li></ul>
+    <p class="key"><b>Spot it:</b> Small scolex with a long protrusible rostellum.</p>
+  </div>
+</article>
+<article class="case" id="dipylidium-mature" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 57" src="img/dipylidium-mature.jpg"><span class="label tag">No. 57 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-dipylidium-mature"><span>Show the answer</span></button>
+  <div class="ans" id="a-dipylidium-mature" hidden>
+    <h3>Dipylidium caninum mature segment</h3>
+    
+    <ul class="pts"><li>Longer than broad (cucumber seed in shape).</li><li>Two sets of genital organs and 2 common genital pores.</li><li>Testes throughout the segment.</li><li>Ovaries horseshoe-shaped; vitelline glands a compact mass behind them, like a bunch of grapes.</li></ul>
+    <p class="key"><b>Spot it:</b> Cucumber-seed segment with a pore on each side.</p>
+  </div>
+</article>
+<article class="case" id="dipylidium-gravid" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 58" src="img/dipylidium-gravid.jpg"><span class="label tag">No. 58 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-dipylidium-gravid"><span>Show the answer</span></button>
+  <div class="ans" id="a-dipylidium-gravid" hidden>
+    <h3>Dipylidium caninum gravid segment</h3>
+    
+    <ul class="pts"><li>Much longer than broad, narrow at both ends (cucumber seed).</li><li>Uterus breaks down into a number of egg capsules, each containing more than one egg.</li></ul>
+    <p class="key"><b>Spot it:</b> Long segment packed with egg capsules.</p>
+  </div>
+</article>
+<article class="case" id="dipylidium-capsules" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 59" src="img/dipylidium-capsules.jpg"><span class="label tag">No. 59 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-dipylidium-capsules"><span>Show the answer</span></button>
+  <div class="ans" id="a-dipylidium-capsules" hidden>
+    <h3>Dipylidium caninum egg capsules</h3>
+    
+    <ul class="pts"><li>Spherical, thin-shelled.</li><li>Each capsule contains 8 to 20 ova.</li></ul>
+    <p class="key"><b>Spot it:</b> Packets of 8 to 20 eggs.</p>
+  </div>
+</article>
+<article class="case" id="dipylidium-jar" data-kind="jar">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="In jar specimen 60" src="img/dipylidium-jar.jpg"><span class="label tag">No. 60 · In jar</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-dipylidium-jar"><span>Show the answer</span></button>
+  <div class="ans" id="a-dipylidium-jar" hidden>
+    <h3>Dipylidium caninum</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Dog, fox, cat, rarely man</dd><dt>Habitat</dt><dd>Small intestine</dd></dl>
+    <ul class="pts"><li>15 to 50 cm long.</li><li>Light reddish yellow when fresh.</li><li>Segments longer than broad (cucumber seed in shape).</li><li>Genital pores bilateral.</li></ul>
+    <p class="key"><b>Spot it:</b> Slender worm of cucumber-seed segments.</p>
+  </div>
+</article></div>
+</div></section>
+<section class="chapter" id="anoplocephalids"><div class="wrap">
+  <div class="ch-head"><div><p class="tag">Section 5 · 12 specimens</p><h2>Ruminant &amp; horse tapeworms</h2></div><p class="lede">Moniezia, Avitellina, Stilesia and Anoplocephala: segments, jars and the triangular egg.</p></div>
+  <div class="cases"><article class="case" id="moniezia-expansa" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 61" src="img/moniezia-expansa.jpg"><span class="label tag">No. 61 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-moniezia-expansa"><span>Show the answer</span></button>
+  <div class="ans" id="a-moniezia-expansa" hidden>
+    <h3>Moniezia expansa mature segment</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Oribatid mites</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Broader than long, with 2 sets of genital organs and 2 common genital pores.</li><li>Testes throughout the central field.</li><li>Interproglottidal glands extend along the whole posterior border of each segment.</li></ul>
+    <p class="key"><b>Spot it:</b> Rosettes of glands along the whole posterior border.</p>
+  </div>
+</article>
+<article class="case" id="moniezia-benedeni" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 62" src="img/moniezia-benedeni.jpg"><span class="label tag">No. 62 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-moniezia-benedeni"><span>Show the answer</span></button>
+  <div class="ans" id="a-moniezia-benedeni" hidden>
+    <h3>Moniezia benedeni mature segment</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Oribatid mites</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Broader than long, with 2 sets of genital organs and 2 common genital pores.</li><li>Interproglottidal glands in a short continuous (linear) row in the middle field at the posterior margin.</li></ul>
+    <p class="key"><b>Spot it:</b> Short straight row of glands in the middle only.</p>
+  </div>
+</article>
+<article class="case" id="moniezia-trigonophora" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 63" src="img/moniezia-trigonophora.jpg"><span class="label tag">No. 63 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-moniezia-trigonophora"><span>Show the answer</span></button>
+  <div class="ans" id="a-moniezia-trigonophora" hidden>
+    <h3>Moniezia trigonophora mature segment</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Oribatid mites</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Broader than long, with 2 sets of genital organs and 2 common genital pores.</li><li>Interproglottidal glands along the whole posterior border.</li><li>Testes grouped in two pyramids towards the sets of genital organs.</li></ul>
+    <p class="key"><b>Spot it:</b> Testes in two pyramids.</p>
+  </div>
+</article>
+<article class="case" id="moniezia-gravid" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 64" src="img/moniezia-gravid.jpg"><span class="label tag">No. 64 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-moniezia-gravid"><span>Show the answer</span></button>
+  <div class="ans" id="a-moniezia-gravid" hidden>
+    <h3>Moniezia spp. gravid segment</h3>
+    
+    <ul class="pts"><li>Segments broader than long.</li><li>Genital organs disappeared.</li><li>Uterus becomes a network filled with eggs.</li></ul>
+    <p class="key"><b>Spot it:</b> Wide segments, uterus a network of eggs.</p>
+  </div>
+</article>
+<article class="case" id="avitellina-mature" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 65" src="img/avitellina-mature.jpg"><span class="label tag">No. 65 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-avitellina-mature"><span>Show the answer</span></button>
+  <div class="ans" id="a-avitellina-mature" hidden>
+    <h3>Avitellina spp. mature segment</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Oribatid mites</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Very narrow and long.</li><li>One set of genital organs and one common genital pore, irregularly alternating.</li><li>Testes lateral and medial to the excretory canals.</li><li>Ovary spherical, towards the side of the genital pore (poral).</li><li>Uterus a simple transverse sac in the middle field.</li><li>Vitelline glands absent.</li></ul>
+    <p class="key"><b>Spot it:</b> Narrow strobila, no vitelline glands, one pore per segment.</p>
+  </div>
+</article>
+<article class="case" id="avitellina-gravid" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 66" src="img/avitellina-gravid.jpg"><span class="label tag">No. 66 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-avitellina-gravid"><span>Show the answer</span></button>
+  <div class="ans" id="a-avitellina-gravid" hidden>
+    <h3>Avitellina spp. gravid segment</h3>
+    
+    <ul class="pts"><li>Broader than long.</li><li>Uterus forms one paruterine organ in each segment.</li></ul>
+    <p class="key"><b>Spot it:</b> One paruterine organ per segment, forming a central chain.</p>
+  </div>
+</article>
+<article class="case" id="stilesia-mature" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 67" src="img/stilesia-mature.jpg"><span class="label tag">No. 67 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-stilesia-mature"><span>Show the answer</span></button>
+  <div class="ans" id="a-stilesia-mature" hidden>
+    <h3>Stilesia hepatica mature segment</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants</dd><dt>Habitat</dt><dd>Liver (bile ducts)</dd><dt>IMH</dt><dd>Oribatid mites</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Broader than long, one set of genital organs and one common genital pore.</li><li>Vitelline glands absent.</li><li>Uterus of two portions united by a transverse duct.</li></ul>
+    <p class="key"><b>Spot it:</b> Two uterine portions joined across the segment.</p>
+  </div>
+</article>
+<article class="case" id="stilesia-gravid" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 68" src="img/stilesia-gravid.jpg"><span class="label tag">No. 68 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-stilesia-gravid"><span>Show the answer</span></button>
+  <div class="ans" id="a-stilesia-gravid" hidden>
+    <h3>Stilesia hepatica gravid segment</h3>
+    
+    <ul class="pts"><li>Segments broader than long.</li><li>Uterus forms 2 paruterine organs filled with eggs.</li></ul>
+    <p class="key"><b>Spot it:</b> Two paruterine organs per segment, giving two rows of beads.</p>
+  </div>
+</article>
+<article class="case" id="moniezia-jar" data-kind="jar">
+  <button type="button" class="view" aria-label="Show the next photo"><img loading="lazy" alt="In jar specimen 69" src="img/moniezia-jar.jpg"><img hidden loading="lazy" alt="In jar specimen 69" src="img/moniezia-jar-2.jpg"><span class="label tag">No. 69 · In jar</span><span class="flip" aria-hidden="true"><i class="on"></i><i></i></span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-moniezia-jar"><span>Show the answer</span></button>
+  <div class="ans" id="a-moniezia-jar" hidden>
+    <h3>Moniezia spp.</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Oribatid mites</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Long and broad tapeworm.</li><li>Segments large, broader than long.</li><li>Each segment has 2 sets of genital organs and 2 common genital pores.</li></ul>
+    <p class="key"><b>Spot it:</b> Broad yellowish ribbons.</p>
+  </div>
+</article>
+<article class="case" id="avitellina-jar" data-kind="jar">
+  <button type="button" class="view" aria-label="Show the next photo"><img loading="lazy" alt="In jar specimen 70" src="img/avitellina-jar.jpg"><img hidden loading="lazy" alt="In jar specimen 70" src="img/avitellina-jar-2.jpg"><span class="label tag">No. 70 · In jar</span><span class="flip" aria-hidden="true"><i class="on"></i><i></i></span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-avitellina-jar"><span>Show the answer</span></button>
+  <div class="ans" id="a-avitellina-jar" hidden>
+    <h3>Avitellina spp.</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Ruminants</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Oribatid mites</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Very narrow and long worm.</li><li>Segmentation is not clear.</li></ul>
+    <p class="key"><b>Spot it:</b> Narrow white threads with no visible segments.</p>
+  </div>
+</article>
+<article class="case" id="anoplocephala-magna" data-kind="jar">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="In jar specimen 71" src="img/anoplocephala-magna.jpg"><span class="label tag">No. 71 · In jar</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-anoplocephala-magna"><span>Show the answer</span></button>
+  <div class="ans" id="a-anoplocephala-magna" hidden>
+    <h3>Anoplocephala magna</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Equines</dd><dt>Habitat</dt><dd>Small intestine, rarely the stomach</dd><dt>IMH</dt><dd>Oribatid mites</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Large (about 80 × 2 cm).</li><li>Scolex large and prominent.</li><li>Segments very wide, short and overlapped.</li></ul>
+    <p class="key"><b>Spot it:</b> Thick worm of short, wide, overlapping segments.</p>
+  </div>
+</article>
+<article class="case" id="moniezia-anoplocephala-egg" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 72" src="img/moniezia-anoplocephala-egg.jpg"><span class="label tag">No. 72 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-moniezia-anoplocephala-egg"><span>Show the answer</span></button>
+  <div class="ans" id="a-moniezia-anoplocephala-egg" hidden>
+    <h3>Moniezia and Anoplocephala spp. egg</h3>
+    
+    <ul class="pts"><li>Triangular or quadrangular.</li><li>A well-developed pyriform apparatus whose horns end in a cap.</li><li>Mature: contains a hexacanth embryo.</li><li>Membranous shell of several layers.</li></ul>
+    <p class="key"><b>Spot it:</b> Angular eggs with a pear-shaped apparatus.</p>
+  </div>
+</article></div>
+</div></section>
+<section class="chapter" id="poultry"><div class="wrap">
+  <div class="ch-head"><div><p class="tag">Section 7 · 9 specimens</p><h2>Poultry &amp; rodent tapeworms</h2></div><p class="lede">Cotugnia, Raillietina and Hymenolepis diminuta: scolex, mature and gravid segments.</p></div>
+  <div class="cases"><article class="case" id="cotugnia-scolex" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 73" src="img/cotugnia-scolex.jpg"><span class="label tag">No. 73 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-cotugnia-scolex"><span>Show the answer</span></button>
+  <div class="ans" id="a-cotugnia-scolex" hidden>
+    <h3>Cotugnia digonopora scolex</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Poultry</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Insects</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Relatively large, with four suckers and a rostellum.</li><li>Only the rostellum is armed, with 2 crowns of hammer-shaped hooks.</li></ul>
+    <p class="key"><b>Spot it:</b> Large scolex; hooks on the rostellum only.</p>
+  </div>
+</article>
+<article class="case" id="cotugnia-mature" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 74" src="img/cotugnia-mature.jpg"><span class="label tag">No. 74 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-cotugnia-mature"><span>Show the answer</span></button>
+  <div class="ans" id="a-cotugnia-mature" hidden>
+    <h3>Cotugnia digonopora mature segment</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Poultry</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Insects</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Broader than long with 2 sets of genital organs and 2 common genital pores.</li><li>Testes scattered at the level of the ovary.</li></ul>
+    <p class="key"><b>Spot it:</b> Poultry segment with a pore on both sides.</p>
+  </div>
+</article>
+<article class="case" id="cotugnia-gravid" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 75" src="img/cotugnia-gravid.jpg"><span class="label tag">No. 75 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-cotugnia-gravid"><span>Show the answer</span></button>
+  <div class="ans" id="a-cotugnia-gravid" hidden>
+    <h3>Cotugnia digonopora gravid segment</h3>
+    
+    <ul class="pts"><li>Broader than long or squarish.</li><li>Uterus breaks down into egg capsules, each containing one egg.</li></ul>
+    <p class="key"><b>Spot it:</b> Egg capsules with one egg each.</p>
+  </div>
+</article>
+<article class="case" id="raillietina-scolex" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 76" src="img/raillietina-scolex.jpg"><span class="label tag">No. 76 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-raillietina-scolex"><span>Show the answer</span></button>
+  <div class="ans" id="a-raillietina-scolex" hidden>
+    <h3>Raillietina spp. scolex</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Poultry</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Insects</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Relatively small, with a small rostellum armed with hammer-shaped hooks in one or two rows.</li><li>Suckers rounded or oval, armed with hooklets.</li></ul>
+    <p class="key"><b>Spot it:</b> Small scolex whose suckers are armed too.</p>
+  </div>
+</article>
+<article class="case" id="raillietina-mature" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 77" src="img/raillietina-mature.jpg"><span class="label tag">No. 77 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-raillietina-mature"><span>Show the answer</span></button>
+  <div class="ans" id="a-raillietina-mature" hidden>
+    <h3>Raillietina spp. mature segment</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Poultry</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Insects</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Broader than long with one set of genital organs and one unilateral common genital pore.</li><li>Ovary in the centre with the testes scattered around it.</li></ul>
+    <p class="key"><b>Spot it:</b> One pore per segment; testes round a central ovary.</p>
+  </div>
+</article>
+<article class="case" id="raillietina-gravid" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 78" src="img/raillietina-gravid.jpg"><span class="label tag">No. 78 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-raillietina-gravid"><span>Show the answer</span></button>
+  <div class="ans" id="a-raillietina-gravid" hidden>
+    <h3>Raillietina spp. gravid segment</h3>
+    
+    <ul class="pts"><li>Broader than long or squarish.</li><li>Uterus breaks down into egg capsules, each bearing several ova.</li></ul>
+    <p class="key"><b>Spot it:</b> Egg capsules with several eggs each.</p>
+  </div>
+</article>
+<article class="case" id="hymenolepis-mature" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 79" src="img/hymenolepis-mature.jpg"><span class="label tag">No. 79 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-hymenolepis-mature"><span>Show the answer</span></button>
+  <div class="ans" id="a-hymenolepis-mature" hidden>
+    <h3>Hymenolepis diminuta mature segment</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Rats &amp; mice</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Insects (fleas &amp; beetles)</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Narrow and broader than long, one set of genital organs and one common genital pore.</li><li>Only 3 testes: one poral and two aporal.</li><li>Ovary in the middle.</li></ul>
+    <p class="key"><b>Spot it:</b> Three round testes in a row.</p>
+  </div>
+</article>
+<article class="case" id="hymenolepis-gravid" data-kind="slide">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="On slide specimen 80" src="img/hymenolepis-gravid.jpg"><span class="label tag">No. 80 · On slide</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-hymenolepis-gravid"><span>Show the answer</span></button>
+  <div class="ans" id="a-hymenolepis-gravid" hidden>
+    <h3>Hymenolepis diminuta gravid segment</h3>
+    
+    <ul class="pts"><li>Broader than long.</li><li>Uterus becomes a transverse sac filled with eggs.</li></ul>
+    <p class="key"><b>Spot it:</b> Wide segments, each with a transverse sac of eggs.</p>
+  </div>
+</article>
+<article class="case" id="poultry-cestodes-jar" data-kind="jar">
+  <button type="button" class="view" aria-label="Enlarge the photo"><img loading="lazy" alt="In jar specimen 81" src="img/poultry-cestodes-jar.jpg"><span class="label tag">No. 81 · In jar</span></button>
+  <p class="case-q">Identify the specimen and describe its morphology.</p>
+  <button type="button" class="reveal" aria-expanded="false" aria-controls="a-poultry-cestodes-jar"><span>Show the answer</span></button>
+  <div class="ans" id="a-poultry-cestodes-jar" hidden>
+    <h3>Cestodes of poultry</h3>
+    <dl class="hosts"><dt>Final host</dt><dd>Poultry</dd><dt>Habitat</dt><dd>Small intestine</dd><dt>IMH</dt><dd>Insects</dd><dt>Larval stage</dt><dd>Cercocystic cysticercoid</dd></dl>
+    <ul class="pts"><li>Davainea, Raillietina, Cotugnia and Hymenolepis.</li><li>Segments narrow, clear and thin, broader than long or squarish.</li><li>Whitish, with a single or double set of genital organs and pores.</li></ul>
+    <p class="key"><b>Spot it:</b> Thin whitish worms in a small bottle.</p>
+  </div>
+</article></div>
+</div></section>
+
+<section class="traps" id="traps"><div class="wrap">
+  <h2>Easily <em>confused</em></h2>
+  <p class="lede">Pairs that look alike on the bench, and the one feature that tells them apart.</p>
+  <div class="pairs"><div class="pair"><h3>Fasciola gigantica <i>vs</i> Fasciola hepatica</h3><p>gigantica is long with parallel sides and weak shoulders. hepatica is short and broad with prominent shoulders, sides making a V, and equal suckers.</p></div><div class="pair"><h3>Paramphistomum <i>vs</i> Cotylophoron · Carmyerius</h3><p>All three are amphistomes. Cotylophoron adds a genital sucker round the genital pore. Carmyerius has caeca that stop at mid-body and testes lying side by side.</p></div><div class="pair"><h3>Taenia saginata scolex <i>vs</i> Taenia solium scolex</h3><p>saginata: quadrate, no rostellum, no hooks. solium: globular, rostellum with two crowns of 22 to 32 hooks.</p></div><div class="pair"><h3>Cysticercus bovis <i>vs</i> Cysticercus cellulosae</h3><p>Both are bladders with one scolex. bovis (cattle) is unarmed; cellulosae (man and pig) has a hooked rostellum.</p></div><div class="pair"><h3>Moniezia expansa <i>vs</i> Moniezia benedeni</h3><p>expansa: interproglottidal glands along the whole posterior border. benedeni: a short linear row in the middle only. trigonophora: testes in two pyramids.</p></div><div class="pair"><h3>Avitellina gravid <i>vs</i> Stilesia gravid</h3><p>Avitellina has one paruterine organ per segment; Stilesia has two. Both lack vitelline glands.</p></div><div class="pair"><h3>Cotugnia <i>vs</i> Raillietina</h3><p>Cotugnia has two pores per segment, hooks on the rostellum only and one egg per capsule. Raillietina has one pore, armed suckers and several eggs per capsule.</p></div><div class="pair"><h3>Dipylidium egg capsules <i>vs</i> Raillietina egg capsules</h3><p>Dipylidium capsules hold 8 to 20 ova and come from a dog tapeworm with cucumber-seed segments; Raillietina is from poultry.</p></div><div class="pair"><h3>Fasciola cercaria <i>vs</i> Paramphistomum cercaria</h3><p>Both are leptocercous with tail three times the body. The amphistome one is pigmented (cercaria pigmentata) with its sucker at the back.</p></div><div class="pair"><h3>Schistosoma cercaria <i>vs</i> Echinostoma cercaria</h3><p>Schistosoma: forked tail (furcocercous), no EMC. Echinostoma: short simple tail as long as the body, spined head collar.</p></div><div class="pair"><h3>Bulinus truncatus <i>vs</i> Biomphalaria alexandrina</h3><p>Both left-handed with smooth shells. Bulinus is a small spired shell with a blunt apex; Biomphalaria is a flat button with a depressed centre.</p></div><div class="pair"><h3>Pirenella conica <i>vs</i> Melania tuberculata</h3><p>Both tall cones. Pirenella is brackish-water with few coarse tubercles and a siphonal notch; Melania is fresh-water with many fine tubercles and no notch.</p></div></div>
+</div></section>
+
+<section class="exam" id="exam"><div class="wrap">
+  <h2>Mock <em>exam</em></h2>
+  <p class="lede">Each question shows a photo. Write the name of the specimen and its morphology; the site marks both against the Atlas.</p>
+  <div class="exam-grid">
+    <div class="opts">
+      <fieldset><legend class="tag">Number of specimens</legend><div class="chips"><label class="chip"><input type="radio" name="x-n" value="10" checked><span>10</span></label><label class="chip"><input type="radio" name="x-n" value="20"><span>20</span></label><label class="chip"><input type="radio" name="x-n" value="30"><span>30</span></label><label class="chip"><input type="radio" name="x-n" value="0"><span>All</span></label></div></fieldset>
+      <fieldset><legend class="tag">Chapters</legend><div class="chips"><label class="chip"><input type="checkbox" name="x-ch" value="liver-flukes" checked><span>Liver &amp; rumen flukes</span></label><label class="chip"><input type="checkbox" name="x-ch" value="gut-blood-flukes" checked><span>Intestinal &amp; blood flukes</span></label><label class="chip"><input type="checkbox" name="x-ch" value="snails" checked><span>Snails</span></label><label class="chip"><input type="checkbox" name="x-ch" value="taeniids" checked><span>Taeniids &amp; Dipylidium</span></label><label class="chip"><input type="checkbox" name="x-ch" value="anoplocephalids" checked><span>Ruminant &amp; horse tapeworms</span></label><label class="chip"><input type="checkbox" name="x-ch" value="poultry" checked><span>Poultry &amp; rodent tapeworms</span></label></div></fieldset>
+      <fieldset><legend class="tag">Specimen type</legend><div class="chips"><label class="chip"><input type="checkbox" name="x-kind" value="slide" checked><span>On slide</span></label><label class="chip"><input type="checkbox" name="x-kind" value="jar" checked><span>In jar</span></label><label class="chip"><input type="checkbox" name="x-kind" value="snail" checked><span>Dried snail</span></label></div></fieldset>
+      <fieldset><legend class="tag">Timer (optional)</legend><div class="chips"><label class="chip"><input type="radio" name="x-time" value="0" checked><span>No timer</span></label><label class="chip"><input type="radio" name="x-time" value="60"><span>1 minute per specimen</span></label><label class="chip"><input type="radio" name="x-time" value="90"><span>1.5 minutes per specimen</span></label></div></fieldset>
+      <p class="pool" id="pool" aria-live="polite"></p>
+      <div class="starts"><button type="button" class="btn" id="x-start">Start the mock exam</button><button type="button" class="btn alt" id="x-drill">Drill one by one</button></div>
+    </div>
+    <div class="how">
+      <h3>How it is marked</h3>
+      <ol>
+        <li data-n="1"><span><b>Name, 1 point.</b> Genus, species and stage must all be there, for example "Taenia solium scolex". Small spelling slips and initials like "F. hepatica" are accepted. The right genus alone earns half.</span></li>
+        <li data-n="2"><span><b>Morphology, 1 point.</b> Each feature you write is matched with the Atlas description. Three correct features give the full point.</span></li>
+        <li data-n="3"><span><b>Review.</b> At the end you see what you wrote, the points you gave, the ones you missed, and the one feature that identifies the specimen.</span></li>
+      </ol>
+      <h3 style="margin-top:14px">Your last papers</h3>
+      <ul class="history" id="history"></ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="index" id="index"><div class="wrap">
+  <h2>All <em>specimens</em></h2>
+  <div class="idx-grid"><div class="idx"><h3>Liver &amp; rumen flukes</h3><ul><li><a href="#fasciola-gigantica-slide">Fasciola gigantica adult<span class="tag">slide</span></a></li><li><a href="#fasciola-gigantica-jar">Fasciola gigantica adult<span class="tag">jar</span></a></li><li><a href="#fasciola-hepatica-slide">Fasciola hepatica adult<span class="tag">slide</span></a></li><li><a href="#fasciola-hepatica-jar">Fasciola hepatica adult<span class="tag">jar</span></a></li><li><a href="#paramphistomum-slide">Paramphistomum spp. adult<span class="tag">slide</span></a></li><li><a href="#paramphistomum-jar">Paramphistomum spp. adult<span class="tag">jar</span></a></li><li><a href="#cotylophoron">Cotylophoron cotylophorum adult<span class="tag">slide</span></a></li><li><a href="#gastrodiscus-slide">Gastrodiscus aegyptiacus adult<span class="tag">slide</span></a></li><li><a href="#gastrodiscus-jar">Gastrodiscus aegyptiacus adult<span class="tag">jar</span></a></li><li><a href="#carmyerius">Carmyerius gregarius adult<span class="tag">slide</span></a></li><li><a href="#dicrocoelium">Dicrocoelium dendriticum adult<span class="tag">slide</span></a></li><li><a href="#fasciola-miracidium">Fasciola spp. miracidium<span class="tag">slide</span></a></li><li><a href="#fasciola-emc">Fasciola spp. encysted metacercaria (EMC)<span class="tag">slide</span></a></li><li><a href="#fasciola-egg">Fasciola spp. egg<span class="tag">slide</span></a></li><li><a href="#paramphistomum-egg">Paramphistomum spp. egg<span class="tag">slide</span></a></li><li><a href="#fasciola-redia">Fasciola spp. redia<span class="tag">slide</span></a></li><li><a href="#fasciola-cercaria">Fasciola spp. cercaria<span class="tag">slide</span></a></li><li><a href="#paramphistomum-cercaria">Paramphistomum spp. cercaria<span class="tag">slide</span></a></li></ul></div><div class="idx"><h3>Intestinal &amp; blood flukes</h3><ul><li><a href="#heterophyes-adult">Heterophyes heterophyes adult<span class="tag">slide</span></a></li><li><a href="#heterophyes-egg">Heterophyes heterophyes egg<span class="tag">slide</span></a></li><li><a href="#heterophyes-emc">Heterophyes heterophyes encysted metacercaria (EMC)<span class="tag">slide</span></a></li><li><a href="#schistosoma-male">Schistosoma bovis adult male<span class="tag">slide</span></a></li><li><a href="#schistosoma-female">Schistosoma bovis adult female<span class="tag">slide</span></a></li><li><a href="#schistosoma-cercaria">Schistosoma spp. cercaria<span class="tag">slide</span></a></li><li><a href="#echinostoma-adult">Echinostoma revolutum adult<span class="tag">slide</span></a></li><li><a href="#echinostoma-cercaria">Echinostoma revolutum cercaria<span class="tag">slide</span></a></li></ul></div><div class="idx"><h3>Snails</h3><ul><li><a href="#lymnaea-stagnalis">Lymnaea stagnalis snail<span class="tag">snail</span></a></li><li><a href="#lymnaea-truncatula">Lymnaea truncatula snail<span class="tag">snail</span></a></li><li><a href="#lymnaea-cailliaudi">Lymnaea cailliaudi snail<span class="tag">snail</span></a></li><li><a href="#zebrina">Zebrina snail<span class="tag">snail</span></a></li><li><a href="#helicella">Helicella snail<span class="tag">snail</span></a></li><li><a href="#cleopatra-bulimoides">Cleopatra bulimoides snail<span class="tag">snail</span></a></li><li><a href="#cleopatra-cyclostomoides">Cleopatra cyclostomoides snail<span class="tag">snail</span></a></li><li><a href="#biomphalaria">Biomphalaria alexandrina snail<span class="tag">snail</span></a></li><li><a href="#bulinus">Bulinus truncatus snail<span class="tag">snail</span></a></li><li><a href="#pirenella">Pirenella conica snail<span class="tag">snail</span></a></li><li><a href="#physa">Physa acuta snail<span class="tag">snail</span></a></li><li><a href="#melania">Melania tuberculata snail<span class="tag">snail</span></a></li><li><a href="#vivipara">Vivipara spp. snail<span class="tag">snail</span></a></li></ul></div><div class="idx"><h3>Taeniids &amp; Dipylidium</h3><ul><li><a href="#diphyllobothrium-mature">Diphyllobothrium latum mature segment<span class="tag">slide</span></a></li><li><a href="#taenia-man-jar">Taenia spp. of man<span class="tag">jar</span></a></li><li><a href="#taenia-saginata-scolex">Taenia saginata scolex<span class="tag">slide</span></a></li><li><a href="#taenia-solium-scolex">Taenia solium scolex<span class="tag">slide</span></a></li><li><a href="#taenia-mature">Taenia spp. mature segment<span class="tag">slide</span></a></li><li><a href="#taenia-gravid">Taenia spp. gravid segment<span class="tag">slide</span></a></li><li><a href="#taenia-egg">Taenia spp. egg<span class="tag">slide</span></a></li><li><a href="#cysticercus-bovis">Cysticercus bovis<span class="tag">jar</span></a></li><li><a href="#cysticercus-cellulosae">Cysticercus cellulosae<span class="tag">slide</span></a></li><li><a href="#coenurus-slide">Coenurus serialis<span class="tag">slide</span></a></li><li><a href="#cysticercus-tenuicollis">Cysticercus tenuicollis<span class="tag">jar</span></a></li><li><a href="#taenia-dog-jar">Taenia spp. of dog<span class="tag">jar</span></a></li><li><a href="#cysticercus-fasciolaris">Cysticercus fasciolaris<span class="tag">jar</span></a></li><li><a href="#echinococcus">Echinococcus granulosus whole worm<span class="tag">slide</span></a></li><li><a href="#hydatid-cyst">Hydatid cyst<span class="tag">jar</span></a></li><li><a href="#hydatid-sand">Hydatid sand<span class="tag">slide</span></a></li><li><a href="#dipylidium-scolex">Dipylidium caninum scolex<span class="tag">slide</span></a></li><li><a href="#dipylidium-mature">Dipylidium caninum mature segment<span class="tag">slide</span></a></li><li><a href="#dipylidium-gravid">Dipylidium caninum gravid segment<span class="tag">slide</span></a></li><li><a href="#dipylidium-capsules">Dipylidium caninum egg capsules<span class="tag">slide</span></a></li><li><a href="#dipylidium-jar">Dipylidium caninum<span class="tag">jar</span></a></li></ul></div><div class="idx"><h3>Ruminant &amp; horse tapeworms</h3><ul><li><a href="#moniezia-expansa">Moniezia expansa mature segment<span class="tag">slide</span></a></li><li><a href="#moniezia-benedeni">Moniezia benedeni mature segment<span class="tag">slide</span></a></li><li><a href="#moniezia-trigonophora">Moniezia trigonophora mature segment<span class="tag">slide</span></a></li><li><a href="#moniezia-gravid">Moniezia spp. gravid segment<span class="tag">slide</span></a></li><li><a href="#avitellina-mature">Avitellina spp. mature segment<span class="tag">slide</span></a></li><li><a href="#avitellina-gravid">Avitellina spp. gravid segment<span class="tag">slide</span></a></li><li><a href="#stilesia-mature">Stilesia hepatica mature segment<span class="tag">slide</span></a></li><li><a href="#stilesia-gravid">Stilesia hepatica gravid segment<span class="tag">slide</span></a></li><li><a href="#moniezia-jar">Moniezia spp.<span class="tag">jar</span></a></li><li><a href="#avitellina-jar">Avitellina spp.<span class="tag">jar</span></a></li><li><a href="#anoplocephala-magna">Anoplocephala magna<span class="tag">jar</span></a></li><li><a href="#moniezia-anoplocephala-egg">Moniezia and Anoplocephala spp. egg<span class="tag">slide</span></a></li></ul></div><div class="idx"><h3>Poultry &amp; rodent tapeworms</h3><ul><li><a href="#cotugnia-scolex">Cotugnia digonopora scolex<span class="tag">slide</span></a></li><li><a href="#cotugnia-mature">Cotugnia digonopora mature segment<span class="tag">slide</span></a></li><li><a href="#cotugnia-gravid">Cotugnia digonopora gravid segment<span class="tag">slide</span></a></li><li><a href="#raillietina-scolex">Raillietina spp. scolex<span class="tag">slide</span></a></li><li><a href="#raillietina-mature">Raillietina spp. mature segment<span class="tag">slide</span></a></li><li><a href="#raillietina-gravid">Raillietina spp. gravid segment<span class="tag">slide</span></a></li><li><a href="#hymenolepis-mature">Hymenolepis diminuta mature segment<span class="tag">slide</span></a></li><li><a href="#hymenolepis-gravid">Hymenolepis diminuta gravid segment<span class="tag">slide</span></a></li><li><a href="#poultry-cestodes-jar">Cestodes of poultry<span class="tag">jar</span></a></li></ul></div></div>
+</div></section>
+</main>
+<footer><div class="wrap"><p><b>Para Specimens</b>. Photos from the Parasitology Specimens files of Sections 1 to 7 (2026). Morphology from the Atlas of Helminthology, Course 256, Parasitology Department, Faculty of Veterinary Medicine, Cairo University.</p><p>Descriptions come from the Atlas of Helminthology, with spelling tidied. All pictures are lab photos from the Section 1 to 7 specimen files. The look-alike summaries and the identifying point on each card are drawn from those same descriptions. Check anything you are unsure of against your lecturer's notes.</p><p>Your mode and marks are saved in this browser only.</p></div></footer>
+<div class="room" id="room" hidden role="dialog" aria-modal="true" aria-label="Exam"></div>
+<script>window.PARA = {"cases":[{"id":"fasciola-gigantica-slide","ch":"liver-flukes","kind":"slide","name":"Fasciola gigantica adult","morph":["Leaf-like body with an anterior cone-shaped projection.","Cuticle with fine scales and spines.","Ventral sucker slightly larger than the oral sucker.","Intestinal caeca branched; the inner branch is T or Y shaped.","Two branched testes, tandem in position; ovary finely branched, anterior to the testes.","Vitelline glands are small follicles filling the whole lateral fields."],"key":"Long leaf with two nearly parallel sides; longer than F. hepatica."},{"id":"fasciola-gigantica-jar","ch":"liver-flukes","kind":"jar","name":"Fasciola gigantica adult","morph":["Greyish brown when fresh.","Leaf-shaped body with an anterior cone-shaped projection.","The two sides are more or less parallel.","Ventral sucker at the level of the shoulders, slightly larger than the oral sucker."],"key":"Long flukes with parallel sides; shoulders not prominent."},{"id":"fasciola-hepatica-slide","ch":"liver-flukes","kind":"slide","name":"Fasciola hepatica adult","morph":["Leaf-shaped and shorter than F. gigantica.","Shoulders more prominent; the two suckers nearly equal.","Inner branches of the caeca are small nodules.","Two branched testes, tandem; ovary finely branched, anterior to the testes.","Uterus convoluted, full of eggs, anterior to the testes, opening into the common genital pore.","Vitelline follicles fill the whole lateral fields."],"key":"Short broad leaf with prominent shoulders; sides make a V."},{"id":"fasciola-hepatica-jar","ch":"liver-flukes","kind":"jar","name":"Fasciola hepatica adult","morph":["Greyish brown when fresh.","Leaf-shaped, shorter than F. gigantica.","Shoulders more prominent.","The two sides make a V shape.","The two suckers are nearly equal."],"key":"Short, broad, V-shaped flukes."},{"id":"paramphistomum-slide","ch":"liver-flukes","kind":"slide","name":"Paramphistomum spp. adult","alias":["amphistome","paramphistomum"],"morph":["Pear-shaped with a smooth cuticle.","Fixation by an oral and a posterior sucker; no genital sucker.","Intestinal caeca simple, unbranched, reaching the posterior end.","Hermaphrodite; testes slightly lobulated, tandem.","Ovary small, posterior to the testes.","Vitelline glands lateral and extracaecal along the body length."],"key":"Conical fluke with a big posterior sucker and no genital sucker."},{"id":"paramphistomum-jar","ch":"liver-flukes","kind":"jar","name":"Paramphistomum spp. adult","alias":["amphistome","rumen fluke"],"morph":["Ruminal flukes (amphistomes).","Conical, medium-sized flukes, light red when fresh.","Pear-shaped, with a posterior sucker."],"key":"Jar full of small pear- or rice-shaped flukes."},{"id":"cotylophoron","ch":"liver-flukes","kind":"slide","name":"Cotylophoron cotylophorum adult","morph":["Closely resembles Paramphistomum.","Has a genital sucker around the genital pore."],"key":"Amphistome with a genital sucker around the genital pore."},{"id":"gastrodiscus-slide","ch":"liver-flukes","kind":"slide","name":"Gastrodiscus aegyptiacus adult","morph":["Anterior part cylindrical, posterior part discoidal.","Ventral surface of the disc carries many tubercles or large papillae.","Oesophagus has two posterolateral pouches.","Oral and posterior sucker; no genital sucker.","Caeca simple, unbranched, to the posterior end.","Testes lobulated, diagonal; ovary posterior to them.","Vitelline glands lateral, extracaecal along the body."],"key":"Small cylinder on a big papillated disc."},{"id":"gastrodiscus-jar","ch":"liver-flukes","kind":"jar","name":"Gastrodiscus aegyptiacus adult","morph":["Pink when fresh.","Body divided by a constriction into a small cylindrical anterior part and a large discoidal, ventrally concave posterior part.","The ventral sucker is relatively small and subterminal."],"key":"Round discs with a small knob in front."},{"id":"carmyerius","ch":"liver-flukes","kind":"slide","name":"Carmyerius gregarius adult","morph":["Closely resembles Paramphistomum.","Intestinal caeca simple, unbranched, reaching only the middle of the body.","Testes slightly lobulated and horizontal at the posterior part."],"key":"Amphistome whose caeca stop at mid-body; testes side by side."},{"id":"dicrocoelium","ch":"liver-flukes","kind":"slide","name":"Dicrocoelium dendriticum adult","alias":["lancet fluke"],"morph":["Elongated lancet-shaped body with a smooth cuticle.","Intestinal caeca simple, unbranched.","Testes slightly lobed, tandem.","Ovary directly behind the testes.","Vitelline glands occupy the middle third of the lateral fields."],"key":"Small lancet with the testes in front of the ovary."},{"id":"fasciola-miracidium","ch":"liver-flukes","kind":"slide","name":"Fasciola spp. miracidium","morph":["Triangular in shape.","Broad anteriorly with a small papilliform protrusion.","Ciliated cuticle.","A pair of eye spots in the anterior half.","Penetrates the snail and changes into a sporocyst."],"key":"Ciliated triangle with eye spots."},{"id":"fasciola-emc","ch":"liver-flukes","kind":"slide","name":"Fasciola spp. encysted metacercaria (EMC)","alias":["emc","metacercaria"],"morph":["The infective stage of Fasciola.","Spherical cyst covered by a thick cyst wall.","Unclear internal structure.","Found on grass."],"key":"Dark round cyst with a thick wall, on grass."},{"id":"fasciola-egg","ch":"liver-flukes","kind":"slide","name":"Fasciola spp. egg","morph":["Large and ovoid.","Golden yellow.","Thin, operculated shell.","Immature: one-cell embryo masked by several yolk cells."],"key":"Large golden-yellow operculated egg, embryo hidden by yolk."},{"id":"paramphistomum-egg","ch":"liver-flukes","kind":"slide","name":"Paramphistomum spp. egg","morph":["Oval and large.","Thin shell, grey in colour.","Operculated.","Immature: one-cell embryo not masked by the yolk cells; develops and hatches in water."],"key":"Large grey operculated egg with the embryo visible."},{"id":"fasciola-redia","ch":"liver-flukes","kind":"slide","name":"Fasciola spp. redia","morph":["Present inside the snail.","Elongated body with a muscular pharynx.","Head collar at the level of the pharynx.","Birth pore anteriorly.","Two lateral processes near the posterior end.","Body filled with germ balls, daughter rediae or cercariae."],"key":"Sac with a pharynx, a collar and two posterior processes."},{"id":"fasciola-cercaria","ch":"liver-flukes","kind":"slide","name":"Fasciola spp. cercaria","morph":["Develops inside the redia in the snail.","Leptocercous type: body with a simple tail.","Body : tail = 1 : 3.","No eye spots.","Oral sucker, ventral sucker and muscular pharynx.","Two simple intestinal caeca."],"key":"Round body, simple tail three times its length, no pigment."},{"id":"paramphistomum-cercaria","ch":"liver-flukes","kind":"slide","name":"Paramphistomum spp. cercaria","alias":["cercaria pigmentata","amphistome cercaria"],"morph":["Leptocercous cercaria with a simple tail (body : tail = 1 : 3).","Oral sucker anteriorly, ventral sucker posteriorly (amphistome cercaria).","Two simple intestinal caeca.","Body and tail pigmented, so called cercaria pigmentata."],"key":"Dark, pigmented body with the sucker at the back."},{"id":"heterophyes-adult","ch":"gut-blood-flukes","kind":"slide","name":"Heterophyes heterophyes adult","morph":["Pear-shaped, with all structures in the posterior part.","Cuticle covered with spines, especially anteriorly.","Fixation by an oral and a ventral sucker.","Common genital pore surrounded by a genital sucker.","Caeca simple, unbranched, reaching the end of the body.","Testes oval, smooth, horizontal at the posterior part; ovary anterior to them.","Vitelline glands lateral at the posterior part."],"key":"Tiny pear-shaped fluke with a genital sucker beside the ventral sucker."},{"id":"heterophyes-egg","ch":"gut-blood-flukes","kind":"slide","name":"Heterophyes heterophyes egg","morph":["Oval and small.","Thick shell, yellow to brown.","Operculated.","Mature: contains a miracidium.","Does not hatch until eaten by the 1st IMH, Pirenella conica."],"key":"Very small brown operculated egg, already embryonated."},{"id":"heterophyes-emc","ch":"gut-blood-flukes","kind":"slide","name":"Heterophyes heterophyes encysted metacercaria (EMC)","alias":["emc","metacercaria"],"morph":["Found in fish muscles.","Spherical or oval cyst; the metacercaria is seen rolling inside.","The infective stage to the final host."],"key":"Small cysts in fish muscle."},{"id":"schistosoma-male","ch":"gut-blood-flukes","kind":"slide","name":"Schistosoma bovis adult male","morph":["Small cylindrical anterior part and a flattened posterior part curved ventrally into the gynaecophoric canal, where the female lies.","Cuticle spined ventrally with small tubercles dorsally.","Oral and ventral suckers pedunculated.","Intestine bifurcates and reunites one or several times backwards.","Testes 3 to 6 (usually 4) in a longitudinal row, a short distance behind the ventral sucker."],"key":"Stout worm folded into a C, with a gynaecophoric canal."},{"id":"schistosoma-female","ch":"gut-blood-flukes","kind":"slide","name":"Schistosoma bovis adult female","morph":["Long and cylindrical, thread-like.","Smooth cuticle.","Oral and ventral suckers weak and close to each other.","Intestine bifurcates then reunites into one tube.","Ovary at the middle of the body.","Uterus straight, running forwards."],"key":"Long thin thread, much slimmer than the male."},{"id":"schistosoma-cercaria","ch":"gut-blood-flukes","kind":"slide","name":"Schistosoma spp. cercaria","alias":["furcocercous cercaria"],"morph":["Furcocercous cercaria (forked tail).","Body : tail = 1 : 3.","Armed with spines.","Four pairs of cephalic (penetration) glands, two acidophilic and two basophilic.","Does not form an EMC."],"key":"The tail splits into a fork."},{"id":"echinostoma-adult","ch":"gut-blood-flukes","kind":"slide","name":"Echinostoma revolutum adult","morph":["Elongated, with a spiny cuticle anteriorly.","Oral sucker surrounded by a fleshy horseshoe-shaped head collar carrying 37 spines.","Wide ventral sucker.","Caeca simple, reaching the end of the body.","Testes tandem, oval or slightly lobed, behind the middle.","Ovary and uterus anterior to the testes.","Vitelline glands lateral and extracaecal."],"key":"Head collar of 37 spines round the oral sucker."},{"id":"echinostoma-cercaria","ch":"gut-blood-flukes","kind":"slide","name":"Echinostoma revolutum cercaria","morph":["Leptocercous, with a simple short tail.","Body : tail = 1 : 1.","Oral sucker surrounded by a head collar with spines."],"key":"Tail as long as the body; spined collar."},{"id":"lymnaea-stagnalis","ch":"snails","kind":"snail","name":"Lymnaea stagnalis snail","morph":["Fresh-water snail.","Right-handed (dextral).","Thick shell.","Large, with a pointed apex.","Large oval aperture."],"key":"Big right-handed shell, pointed apex, wide aperture."},{"id":"lymnaea-truncatula","ch":"snails","kind":"snail","name":"Lymnaea truncatula snail","morph":["Amphibian, fresh-water related snail.","Right-handed.","Brown to dark.","Thick shell.","Resembles L. stagnalis but small; the opening is not more than half the shell length."],"key":"Several tiny dark right-handed shells."},{"id":"lymnaea-cailliaudi","ch":"snails","kind":"snail","name":"Lymnaea cailliaudi snail","alias":["lymnaea cailliudae"],"morph":["Fresh-water snail.","Right-handed (dextral).","Thin fragile shell.","Pointed apex.","Large body whorl.","Large oval aperture."],"key":"Thin fragile shell almost all body whorl."},{"id":"zebrina","ch":"snails","kind":"snail","name":"Zebrina snail","morph":["Land snail.","Right-handed.","Thick shell with distinct sutures.","Conical, with longitudinal stripes.","Aperture is 1/4 of the total length.","Blunt apex."],"key":"Pair of white conical land snails with stripes."},{"id":"helicella","ch":"snails","kind":"snail","name":"Helicella snail","morph":["Land snail.","Right-handed.","Thick shell.","Button-shaped with a blunt apex and raised centre.","Deep umbilicus."],"key":"Flattened button shell with a deep umbilicus."},{"id":"cleopatra-bulimoides","ch":"snails","kind":"snail","name":"Cleopatra bulimoides snail","morph":["Fresh-water snail.","Right-handed.","Blunt apex.","Brown.","Oblique whorls with spiral dark bands."],"key":"Small brown right-handed shell with dark bands."},{"id":"cleopatra-cyclostomoides","ch":"snails","kind":"snail","name":"Cleopatra cyclostomoides snail","morph":["Resembles Cleopatra bulimoides but whitish in colour."],"key":"Like C. bulimoides, but whitish."},{"id":"biomphalaria","ch":"snails","kind":"snail","name":"Biomphalaria alexandrina snail","morph":["Fresh-water snail.","Left-handed.","Button-shaped with a depressed centre.","Smooth shell."],"key":"Flat coiled disc, depressed in the centre."},{"id":"bulinus","ch":"snails","kind":"snail","name":"Bulinus truncatus snail","morph":["Fresh-water snail.","Left-handed.","Blunt apex.","Smooth shell."],"key":"Small left-handed shell with a blunt apex."},{"id":"pirenella","ch":"snails","kind":"snail","name":"Pirenella conica snail","morph":["Brackish-water snail.","Right-handed.","Conical with a sharp apex.","Less oblique whorls.","Thick shell with coarse ornamentation: large, few tubercles in one to four rows.","Has a siphonal notch."],"key":"Tall dark cone with coarse tubercles and a siphonal notch."},{"id":"physa","ch":"snails","kind":"snail","name":"Physa acuta snail","morph":["Fresh-water snail.","Left-handed.","Less oblique whorls.","Pointed apex."],"key":"Small left-handed shell with a pointed apex."},{"id":"melania","ch":"snails","kind":"snail","name":"Melania tuberculata snail","morph":["Fresh-water snail.","Right-handed.","Conical.","Ornamented shell with fine tubercles, small and many.","No siphonal notch."],"key":"Tall cone with fine tubercles and no siphonal notch."},{"id":"vivipara","ch":"snails","kind":"snail","name":"Vivipara spp. snail","morph":["Fresh-water snail.","Right-handed.","Sharp apex.","Smooth shell with deep sutures.","A small deep umbilicus."],"key":"Smooth globular shell, deep sutures."},{"id":"diphyllobothrium-mature","ch":"taeniids","kind":"slide","name":"Diphyllobothrium latum mature segment","morph":["Squarish to broader than long.","Ovary bilobed, posterior in the segment.","Testes and vitelline glands in the mixed lateral fields.","Uterus a dark central coiled tube, rosette-shaped, full of eggs.","Uterine pore present ventrally.","Common genital pore ventral, anterior to the uterine pore."],"key":"Central dark rosette uterus with a ventral pore."},{"id":"taenia-man-jar","ch":"taeniids","kind":"jar","name":"Taenia spp. of man","alias":["taenia saginata","taenia solium","taenia of man"],"morph":["Whole worm 4 to 8 metres long (rarely 10).","Mature segments are squarish.","Gravid segments are longer than broad.","Genital pores single, irregularly alternating."],"key":"Long ribbon of segments; gravid ones longer than broad."},{"id":"taenia-saginata-scolex","ch":"taeniids","kind":"slide","name":"Taenia saginata scolex","morph":["Quadrate and large.","Four cup-shaped suckers.","No rostellum, no hooks."],"key":"Square head, four suckers, unarmed."},{"id":"taenia-solium-scolex","ch":"taeniids","kind":"slide","name":"Taenia solium scolex","morph":["Globular, with four cup-shaped suckers.","A rostellum carrying two crowns of taenioid hooks (22 to 32)."],"key":"Round head with a hooked rostellum."},{"id":"taenia-mature","ch":"taeniids","kind":"slide","name":"Taenia spp. mature segment","morph":["Nearly squarish.","Ovary bilobed, posterior.","Vitelline gland a compact mass behind the ovary.","Testes distributed all over the segment.","Uterus a simple blind tube with no uterine pore.","Common genital pore unilateral, irregularly alternating."],"key":"Square segment, bilobed ovary, single lateral pore."},{"id":"taenia-gravid","ch":"taeniids","kind":"slide","name":"Taenia spp. gravid segment","morph":["Longer than broad.","Uterus becomes a longitudinal stem with 15 to 20 main lateral branches on each side.","Other organs atrophied."],"key":"Long segment with a branched uterus."},{"id":"taenia-egg","ch":"taeniids","kind":"slide","name":"Taenia spp. egg","morph":["Brownish.","Globular, with a double-contoured, radially striated embryophore.","Mature eggs contain a hexacanth embryo."],"key":"Round brown egg with a striated shell."},{"id":"cysticercus-bovis","ch":"taeniids","kind":"jar","name":"Cysticercus bovis","morph":["Whitish bladder-like cyst of different sizes.","Spherical or elliptical, semi-transparent wall, some cystic fluid.","Each cyst has one macroscopic invaginated scolex.","On a slide: four suckers, no hooks and no rostellum."],"key":"Small cysts in beef muscle."},{"id":"cysticercus-cellulosae","ch":"taeniids","kind":"slide","name":"Cysticercus cellulosae","morph":["Bladder-like cyst with one invaginated scolex with four suckers.","Rostellum armed with 2 rows of taenioid hooks."],"key":"Invaginated scolex with a hooked rostellum."},{"id":"coenurus-slide","ch":"taeniids","kind":"slide","name":"Coenurus serialis","morph":["Larval stage of Multiceps serialis.","Transparent wall.","Numerous macroscopic invaginated scolices arranged in lines (serially)."],"key":"Many scolices in rows inside one cyst."},{"id":"cysticercus-tenuicollis","ch":"taeniids","kind":"jar","name":"Cysticercus tenuicollis","morph":["Large (1 to 7 cm in diameter).","Bladder-like, with a semi-transparent wall.","Large amount of cystic fluid.","Long neck with one invaginated scolex."],"key":"Big water bladder with one long-necked scolex."},{"id":"taenia-dog-jar","ch":"taeniids","kind":"jar","name":"Taenia spp. of dog","alias":["taenia of dog"],"morph":["Smaller than the Taenia of man.","Mature segments squarish; gravid ones longer than broad.","Rostellum armed with a double crown of taenioid hooks."],"key":"Tangle of tapeworms smaller than the human ones."},{"id":"cysticercus-fasciolaris","ch":"taeniids","kind":"jar","name":"Cysticercus fasciolaris","alias":["strobilocercus"],"morph":["Small vesicle attached to a long pseudo-segmented neck.","Scolex with a rostellum carrying two crowns of taenioid hooks."],"key":"Small bladder on a long segmented-looking neck."},{"id":"echinococcus","ch":"taeniids","kind":"slide","name":"Echinococcus granulosus whole worm","alias":["echinococcus"],"morph":["Strobila of 3 to 4 (usually 3) segments: one immature, one mature, the third gravid.","Genital pores single, irregularly alternating.","Very small scolex with four suckers and a rostellum with 2 crowns of taenioid hooks.","Mature segment like Taenia but longer than broad.","Gravid segment longer than broad; uterus with lateral pouches full of eggs."],"key":"A whole worm of only three segments."},{"id":"hydatid-cyst","ch":"taeniids","kind":"jar","name":"Hydatid cyst","morph":["Hen's egg to child's head in size.","Large spherical or ovoid cyst with an opaque thick fibrous wall.","Large amount of cystic fluid.","Many scolices on the germinal layer, in brood capsules, daughter cysts or free in the fluid (hydatid sand)."],"key":"Thick-walled cysts in an organ."},{"id":"hydatid-sand","ch":"taeniids","kind":"slide","name":"Hydatid sand","morph":["A group of microscopic scolices and brood capsules swimming in the hydatid fluid.","Scolices with invaginated heads provided with several hooks."],"key":"Many small scolices scattered in fluid."},{"id":"dipylidium-scolex","ch":"taeniids","kind":"slide","name":"Dipylidium caninum scolex","morph":["Comparatively small.","Four suckers.","Protrusible, retractable rostellum armed with rose-thorn-shaped hooks in 3 to 7 spiral rows."],"key":"Small scolex with a long protrusible rostellum."},{"id":"dipylidium-mature","ch":"taeniids","kind":"slide","name":"Dipylidium caninum mature segment","morph":["Longer than broad (cucumber seed in shape).","Two sets of genital organs and 2 common genital pores.","Testes throughout the segment.","Ovaries horseshoe-shaped; vitelline glands a compact mass behind them, like a bunch of grapes."],"key":"Cucumber-seed segment with a pore on each side."},{"id":"dipylidium-gravid","ch":"taeniids","kind":"slide","name":"Dipylidium caninum gravid segment","morph":["Much longer than broad, narrow at both ends (cucumber seed).","Uterus breaks down into a number of egg capsules, each containing more than one egg."],"key":"Long segment packed with egg capsules."},{"id":"dipylidium-capsules","ch":"taeniids","kind":"slide","name":"Dipylidium caninum egg capsules","alias":["egg capsule"],"morph":["Spherical, thin-shelled.","Each capsule contains 8 to 20 ova."],"key":"Packets of 8 to 20 eggs."},{"id":"dipylidium-jar","ch":"taeniids","kind":"jar","name":"Dipylidium caninum","morph":["15 to 50 cm long.","Light reddish yellow when fresh.","Segments longer than broad (cucumber seed in shape).","Genital pores bilateral."],"key":"Slender worm of cucumber-seed segments."},{"id":"moniezia-expansa","ch":"anoplocephalids","kind":"slide","name":"Moniezia expansa mature segment","morph":["Broader than long, with 2 sets of genital organs and 2 common genital pores.","Testes throughout the central field.","Interproglottidal glands extend along the whole posterior border of each segment."],"key":"Rosettes of glands along the whole posterior border."},{"id":"moniezia-benedeni","ch":"anoplocephalids","kind":"slide","name":"Moniezia benedeni mature segment","morph":["Broader than long, with 2 sets of genital organs and 2 common genital pores.","Interproglottidal glands in a short continuous (linear) row in the middle field at the posterior margin."],"key":"Short straight row of glands in the middle only."},{"id":"moniezia-trigonophora","ch":"anoplocephalids","kind":"slide","name":"Moniezia trigonophora mature segment","morph":["Broader than long, with 2 sets of genital organs and 2 common genital pores.","Interproglottidal glands along the whole posterior border.","Testes grouped in two pyramids towards the sets of genital organs."],"key":"Testes in two pyramids."},{"id":"moniezia-gravid","ch":"anoplocephalids","kind":"slide","name":"Moniezia spp. gravid segment","morph":["Segments broader than long.","Genital organs disappeared.","Uterus becomes a network filled with eggs."],"key":"Wide segments, uterus a network of eggs."},{"id":"avitellina-mature","ch":"anoplocephalids","kind":"slide","name":"Avitellina spp. mature segment","morph":["Very narrow and long.","One set of genital organs and one common genital pore, irregularly alternating.","Testes lateral and medial to the excretory canals.","Ovary spherical, towards the side of the genital pore (poral).","Uterus a simple transverse sac in the middle field.","Vitelline glands absent."],"key":"Narrow strobila, no vitelline glands, one pore per segment."},{"id":"avitellina-gravid","ch":"anoplocephalids","kind":"slide","name":"Avitellina spp. gravid segment","morph":["Broader than long.","Uterus forms one paruterine organ in each segment."],"key":"One paruterine organ per segment, forming a central chain."},{"id":"stilesia-mature","ch":"anoplocephalids","kind":"slide","name":"Stilesia hepatica mature segment","morph":["Broader than long, one set of genital organs and one common genital pore.","Vitelline glands absent.","Uterus of two portions united by a transverse duct."],"key":"Two uterine portions joined across the segment."},{"id":"stilesia-gravid","ch":"anoplocephalids","kind":"slide","name":"Stilesia hepatica gravid segment","morph":["Segments broader than long.","Uterus forms 2 paruterine organs filled with eggs."],"key":"Two paruterine organs per segment, giving two rows of beads."},{"id":"moniezia-jar","ch":"anoplocephalids","kind":"jar","name":"Moniezia spp.","morph":["Long and broad tapeworm.","Segments large, broader than long.","Each segment has 2 sets of genital organs and 2 common genital pores."],"key":"Broad yellowish ribbons."},{"id":"avitellina-jar","ch":"anoplocephalids","kind":"jar","name":"Avitellina spp.","morph":["Very narrow and long worm.","Segmentation is not clear."],"key":"Narrow white threads with no visible segments."},{"id":"anoplocephala-magna","ch":"anoplocephalids","kind":"jar","name":"Anoplocephala magna","morph":["Large (about 80 × 2 cm).","Scolex large and prominent.","Segments very wide, short and overlapped."],"key":"Thick worm of short, wide, overlapping segments."},{"id":"moniezia-anoplocephala-egg","ch":"anoplocephalids","kind":"slide","name":"Moniezia and Anoplocephala spp. egg","alias":["moniezia egg","anoplocephala egg"],"morph":["Triangular or quadrangular.","A well-developed pyriform apparatus whose horns end in a cap.","Mature: contains a hexacanth embryo.","Membranous shell of several layers."],"key":"Angular eggs with a pear-shaped apparatus."},{"id":"cotugnia-scolex","ch":"poultry","kind":"slide","name":"Cotugnia digonopora scolex","morph":["Relatively large, with four suckers and a rostellum.","Only the rostellum is armed, with 2 crowns of hammer-shaped hooks."],"key":"Large scolex; hooks on the rostellum only."},{"id":"cotugnia-mature","ch":"poultry","kind":"slide","name":"Cotugnia digonopora mature segment","morph":["Broader than long with 2 sets of genital organs and 2 common genital pores.","Testes scattered at the level of the ovary."],"key":"Poultry segment with a pore on both sides."},{"id":"cotugnia-gravid","ch":"poultry","kind":"slide","name":"Cotugnia digonopora gravid segment","morph":["Broader than long or squarish.","Uterus breaks down into egg capsules, each containing one egg."],"key":"Egg capsules with one egg each."},{"id":"raillietina-scolex","ch":"poultry","kind":"slide","name":"Raillietina spp. scolex","morph":["Relatively small, with a small rostellum armed with hammer-shaped hooks in one or two rows.","Suckers rounded or oval, armed with hooklets."],"key":"Small scolex whose suckers are armed too."},{"id":"raillietina-mature","ch":"poultry","kind":"slide","name":"Raillietina spp. mature segment","morph":["Broader than long with one set of genital organs and one unilateral common genital pore.","Ovary in the centre with the testes scattered around it."],"key":"One pore per segment; testes round a central ovary."},{"id":"raillietina-gravid","ch":"poultry","kind":"slide","name":"Raillietina spp. gravid segment","morph":["Broader than long or squarish.","Uterus breaks down into egg capsules, each bearing several ova."],"key":"Egg capsules with several eggs each."},{"id":"hymenolepis-mature","ch":"poultry","kind":"slide","name":"Hymenolepis diminuta mature segment","morph":["Narrow and broader than long, one set of genital organs and one common genital pore.","Only 3 testes: one poral and two aporal.","Ovary in the middle."],"key":"Three round testes in a row."},{"id":"hymenolepis-gravid","ch":"poultry","kind":"slide","name":"Hymenolepis diminuta gravid segment","morph":["Broader than long.","Uterus becomes a transverse sac filled with eggs."],"key":"Wide segments, each with a transverse sac of eggs."},{"id":"poultry-cestodes-jar","ch":"poultry","kind":"jar","name":"Cestodes of poultry","alias":["poultry cestodes","cestodes of poultry"],"morph":["Davainea, Raillietina, Cotugnia and Hymenolepis.","Segments narrow, clear and thin, broader than long or squarish.","Whitish, with a single or double set of genital organs and pores."],"key":"Thin whitish worms in a small bottle."}]};</script>
+<script>// Marks a typed answer: the specimen name (1 point) and the morphology (1 point, full marks from 3 correct points).
+var Grader = (function () {
+  var NAME_DROP = { spp: 1, sp: 1, species: 1, of: 1, the: 1, and: 1, adult: 1, in: 1, jar: 1, on: 1, slide: 1, snail: 1, a: 1, an: 1, whole: 1, worm: 1, segment: 1, encysted: 1 };
+  var MORPH_DROP = ('the and with for not but are into from that this each body are is its has have more less than very also which their there them they when where both been some other only same just much many about over under like being called present found seen were was will one two'
+  ).split(' ').reduce(function (o, w) { o[w] = 1; return o; }, {});
+  var SYN = { emc: 'metacercaria', metacercariae: 'metacercaria', ova: 'eggs', egg: 'eggs', segments: 'segment', branches: 'branched', branch: 'branched', suckers: 'sucker', testis: 'testes', hooklets: 'hooks', hook: 'hooks', armed: 'hooks', caecum: 'caeca', ceca: 'caeca', cecum: 'caeca', intestine: 'caeca', intestinal: 'caeca', vitellaria: 'vitelline', vitelline: 'vitelline', glands: 'gland', operculum: 'operculated', operculate: 'operculated', ciliated: 'cilia', cuticle: 'cuticle', spiny: 'spines', spined: 'spines', spine: 'spines', '2': 'two', '3': 'three', '4': 'four', rows: 'row', crowns: 'crown' };
+  function norm(s) {
+    return String(s || '').toLowerCase().replace(/\(.*?\)/g, function (m) { return ' ' + m.slice(1, -1) + ' '; })
+      .replace(/[^a-z0-9:\s]/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+  function words(s) { return norm(s).split(' ').filter(Boolean).map(function (w) { return SYN[w] || w; }); }
+  function lev(a, b) {
+    if (Math.abs(a.length - b.length) > 2) return 9;
+    var p = [], i, j; for (j = 0; j <= b.length; j++) p[j] = j;
+    for (i = 1; i <= a.length; i++) { var c = [i]; for (j = 1; j <= b.length; j++) c[j] = Math.min(p[j] + 1, c[j - 1] + 1, p[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); p = c; }
+    return p[b.length];
+  }
+  function near(w, list) {
+    var tol = w.length >= 8 ? 2 : w.length >= 4 ? 1 : 0;
+    for (var i = 0; i < list.length; i++) {
+      var v = list[i];
+      if (v === w) return true;
+      if (tol && lev(v, w) <= tol) return true;
+      if (w.length >= 6 && v.length >= 5 && (w.indexOf(v) === 0 || v.indexOf(w) === 0)) return true;
+    }
+    return false;
+  }
+  function nameTokens(n) { return words(n).filter(function (w) { return !NAME_DROP[w]; }); }
+  // 'ok' when every key word of the name (or an alias) is there, 'half' when the genus is right.
+  function gradeName(answer, c) {
+    var a = words(answer); if (!a.length) return 'no';
+    var options = [c.name].concat(c.alias || []), best = 'no';
+    for (var i = 0; i < options.length; i++) {
+      var t = nameTokens(options[i]); if (!t.length) continue;
+      var hit = t.filter(function (w, j) { return near(w, a) || (j === 0 && t.length > 1 && a.indexOf(w[0]) >= 0); }).length;
+      if (hit === t.length) return 'ok';
+      if (near(t[0], a) && i === 0) best = 'half';
+    }
+    return best;
+  }
+  function pointWords(p) { return words(p).filter(function (w) { return (w.length >= 4 || /\d/.test(w)) && !MORPH_DROP[w]; }); }
+  function gradeMorph(answer, c) {
+    var a = words(answer), got = [], miss = [];
+    c.morph.forEach(function (p) {
+      var k = pointWords(p), hit = k.filter(function (w) { return near(w, a); }).length;
+      var need = Math.min(2, k.length);
+      (k.length && hit >= need ? got : miss).push(p);
+    });
+    var target = Math.min(3, c.morph.length);
+    return { got: got, miss: miss, target: target, score: a.length ? Math.min(1, got.length / target) : 0 };
+  }
+  function grade(nameAns, morphAns, c) {
+    var n = gradeName(nameAns, c), m = gradeMorph(morphAns, c);
+    var ns = n === 'ok' ? 1 : n === 'half' ? .5 : 0;
+    return { name: n, nameScore: ns, morph: m, total: ns + m.score };
+  }
+  return { grade: grade, gradeName: gradeName, gradeMorph: gradeMorph };
+})();
+if (typeof module !== 'undefined') module.exports = Grader;
+</script>
+<script>(function () {
+  var D = window.PARA, CASES = D.cases, BY = {};
+  CASES.forEach(function (c) { BY[c.id] = c; });
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]; }); }
+  function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k) || 'null'); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
+  function imgOf(id, n) { var el = document.querySelectorAll('#' + id + ' .view img')[n || 0]; return el ? el.getAttribute('src') : ''; }
+  function imgCount(id) { return document.querySelectorAll('#' + id + ' .view img').length; }
+
+  // ---- Study / test mode and the kind filter
+  var mode = store('para-mode') || 'test', kind = 'all';
+  function applyMode() {
+    document.body.classList.toggle('study', mode === 'study');
+    $$('[data-mode]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.mode === mode); });
+  }
+  function applyKind() {
+    var shown = 0;
+    $$('.case').forEach(function (el) { var on = kind === 'all' || el.dataset.kind === kind; el.hidden = !on; if (on) shown++; });
+    $$('.chapter').forEach(function (ch) { ch.hidden = !$$('.case', ch).some(function (c) { return !c.hidden; }); });
+    $$('[data-kind]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.kind === kind); });
+    $('#shown').textContent = shown + ' specimens shown';
+  }
+  $$('[data-mode]').forEach(function (b) { b.addEventListener('click', function () { mode = b.dataset.mode; store('para-mode', mode); applyMode(); }); });
+  $$('[data-kind]').forEach(function (b) { b.addEventListener('click', function () { kind = b.dataset.kind; applyKind(); }); });
+  applyMode(); applyKind();
+
+  // ---- Reveal answers, cycle photos, zoom
+  $$('.reveal').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var a = document.getElementById(b.getAttribute('aria-controls')), open = b.getAttribute('aria-expanded') === 'true';
+      b.setAttribute('aria-expanded', !open); a.hidden = open; b.firstChild.textContent = open ? 'Show the answer' : 'Hide the answer';
+    });
+  });
+  $$('.view').forEach(function (v) {
+    var imgs = $$('img', v), dots = $$('.flip i', v);
+    v.addEventListener('click', function () {
+      if (imgs.length > 1) {
+        var i = imgs.findIndex(function (m) { return !m.hidden; }), n = (i + 1) % imgs.length;
+        imgs[i].hidden = true; imgs[n].hidden = false; dots.forEach(function (d, k) { d.classList.toggle('on', k === n); });
+      } else zoom(imgs[0].getAttribute('src'));
+    });
+  });
+  function zoom(src) {
+    var lb = document.createElement('div'); lb.className = 'lightbox'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-label', 'Enlarged photo');
+    lb.innerHTML = '<img alt="" src="' + src + '">'; lb.tabIndex = -1;
+    function close() { lb.remove(); document.removeEventListener('keydown', key); }
+    function key(e) { if (e.key === 'Escape') close(); }
+    lb.addEventListener('click', close); document.addEventListener('keydown', key);
+    document.body.appendChild(lb); lb.focus();
+  }
+
+  // ---- Exam settings
+  function picked(name) { return $$('input[name="' + name + '"]:checked').map(function (i) { return i.value; }); }
+  function pool() {
+    var chs = picked('x-ch'), ks = picked('x-kind');
+    return CASES.filter(function (c) { return chs.indexOf(c.ch) >= 0 && ks.indexOf(c.kind) >= 0; });
+  }
+  function updatePool() {
+    var n = pool().length, want = +picked('x-n')[0] || n;
+    $('#pool').innerHTML = '<b>' + Math.min(n, want) + '</b> question' + (Math.min(n, want) === 1 ? '' : 's') + ' from ' + n + ' matching specimens';
+    $('#x-start').disabled = !n; $('#x-drill').disabled = !n;
+  }
+  $$('.exam input').forEach(function (i) { i.addEventListener('change', updatePool); });
+  updatePool();
+  function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+  // ---- The exam room (mock paper or drill)
+  var room = $('#room'), S = null, tick = null;
+  function start(drill, list) {
+    var p = list || shuffle(pool().slice()), want = +picked('x-n')[0] || p.length;
+    if (!list) p = p.slice(0, want);
+    if (!p.length) return;
+    var per = +picked('x-time')[0] || 0;
+    S = { drill: drill, qs: p.map(function (c) { return { id: c.id, pic: Math.floor(Math.random() * imgCount(c.id)), name: '', morph: '', res: null }; }), i: 0, end: per && !drill ? Date.now() + per * 1000 * p.length : 0, finished: false };
+    document.documentElement.classList.add('in-room'); room.hidden = false;
+    render(); room.scrollTop = 0;
+    clearInterval(tick); if (S.end) tick = setInterval(clock, 500);
+  }
+  function clock() {
+    if (!S || !S.end) return;
+    var left = Math.max(0, Math.round((S.end - Date.now()) / 1000)), el = $('#clock');
+    if (el) { el.textContent = Math.floor(left / 60) + ':' + String(left % 60).padStart(2, '0'); el.classList.toggle('urgent', left <= 30); }
+    if (!left) { save(); finish(); }
+  }
+  function save() { var q = S && S.qs[S.i], n = $('#a-name'), m = $('#a-morph'); if (q && n && !S.finished) { q.name = n.value; q.morph = m.value; } }
+  function leave() { clearInterval(tick); S = null; room.hidden = true; room.innerHTML = ''; document.documentElement.classList.remove('in-room'); }
+  function bar(extra) {
+    var dots = S.qs.map(function (q, k) { return '<button type="button" data-go="' + k + '" class="' + (k === S.i ? 'cur' : (q.name || q.morph) ? 'done' : '') + '" aria-label="Question ' + (k + 1) + '">' + (k + 1) + '</button>'; }).join('');
+    return '<div class="room-bar"><div class="in"><span class="tag" style="color:var(--yellow)">' + (S.drill ? 'Drill' : 'Mock exam') + '</span>' +
+      (S.finished ? '' : (S.end ? '<span class="clock" id="clock">–:––</span>' : '') + '<span class="qcount">' + (S.i + 1) + ' / ' + S.qs.length + '</span>') +
+      '<span class="spacer"></span>' + (extra || '') + '<button type="button" class="btn alt small" id="r-quit">Leave</button></div>' +
+      (S.qs.length > 1 && !S.drill && !S.finished ? '<div class="in" style="padding-top:0"><div class="dots">' + dots + '</div></div>' : '') + '</div>';
+  }
+  function render() {
+    var q = S.qs[S.i], c = BY[q.id], last = S.i === S.qs.length - 1;
+    var fb = S.drill && q.res ? verdict(q, c) : '';
+    room.innerHTML = bar(S.drill ? '' : '<button type="button" class="btn yellow small" id="r-finish">Hand in</button>') +
+      '<div class="room-body"><div class="q-card"><div class="q-img"><img alt="Specimen photo for question ' + (S.i + 1) + '" src="' + imgOf(c.id, q.pic) + '"></div>' +
+      '<div class="q-side"><span class="tag" style="color:var(--muted)">Question ' + (S.i + 1) + ' · ' + kindName(c.kind) + '</span><h3>Identify and describe</h3>' +
+      '<div class="field"><label class="tag" for="a-name">Name of the specimen</label><input id="a-name" autocomplete="off" spellcheck="false" placeholder="e.g. Fasciola hepatica adult" value="' + esc(q.name) + '"' + (q.res ? ' readonly' : '') + '></div>' +
+      '<div class="field"><label class="tag" for="a-morph">Morphology</label><textarea id="a-morph" placeholder="Shape, suckers, caeca, testes, ovary, vitelline glands, uterus…"' + (q.res ? ' readonly' : '') + '>' + esc(q.morph) + '</textarea>' +
+      '<p class="hint">One point for the name, one for the morphology. Three correct features give full marks for morphology.</p></div>' +
+      '<div class="q-nav">' + (S.drill
+        ? (q.res ? (last ? '<button type="button" class="btn" id="r-finish">See my score</button>' : '<button type="button" class="btn" id="r-next">Next specimen</button>') : '<button type="button" class="btn" id="r-check">Check my answer</button>')
+        : '<button type="button" class="btn alt" id="r-prev"' + (S.i ? '' : ' disabled') + '>Previous</button>' + (last ? '<button type="button" class="btn" id="r-finish2">Hand in</button>' : '<button type="button" class="btn" id="r-next">Next</button>')) +
+      '</div><div id="confirm-slot"></div>' + fb + '</div></div></div>';
+    clock();
+    var inp = $('#a-name'); if (inp && !q.res) inp.focus({ preventScroll: true });
+  }
+  function kindName(k) { return { slide: 'On slide', jar: 'In jar', snail: 'Dried snail' }[k]; }
+  function verdict(q, c) {
+    var r = q.res, m = r.morph, nm = r.name === 'ok' ? '<span class="mark ok">Name correct</span>' : r.name === 'half' ? '<span class="mark half">Name half right</span>' : '<span class="mark no">Name wrong</span>';
+    var mm = '<span class="mark ' + (m.score >= 1 ? 'ok' : m.score > 0 ? 'half' : 'no') + '">Morphology ' + Math.min(m.got.length, m.target) + ' / ' + m.target + '</span>';
+    return '<div class="verdict"><div class="row">' + nm + mm + '</div><h4>' + esc(c.name) + '</h4>' +
+      (m.got.length ? '<p class="tag" style="color:var(--good)">Points you gave</p><ul class="pts got">' + m.got.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' : '') +
+      (m.miss.length ? '<p class="tag" style="color:var(--red-text)">Points from the Atlas you missed</p><ul class="pts miss">' + m.miss.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' : '') +
+      '<p class="key"><b>Spot it:</b> ' + esc(c.key) + '</p></div>';
+  }
+  function finish() {
+    clearInterval(tick); S.finished = true;
+    S.qs.forEach(function (q) { if (!q.res) q.res = Grader.grade(q.name, q.morph, BY[q.id]); });
+    var got = S.qs.reduce(function (s, q) { return s + q.res.total; }, 0), max = S.qs.length * 2, pct = Math.round(got / max * 100);
+    var hist = store('para-history') || []; hist.unshift({ t: Date.now(), n: S.qs.length, pct: pct, drill: S.drill }); store('para-history', hist.slice(0, 8)); showHistory();
+    var weak = S.qs.filter(function (q) { return q.res.total < 1.5; });
+    room.innerHTML = bar(weak.length ? '<button type="button" class="btn small" id="r-retry">Redo the ' + weak.length + ' weak one' + (weak.length > 1 ? 's' : '') + '</button>' : '') +
+      '<div class="room-body"><div class="result-head"><span class="tag" style="color:var(--yellow)">Your mark</span><p class="score">' + pct + '%<small> · ' + (Math.round(got * 10) / 10) + ' of ' + max + ' points</small></p>' +
+      '<p class="lede">Each specimen is worth 2 points: 1 for the name and 1 for the morphology. Below is every answer next to the Atlas description.</p></div><div class="res-list">' +
+      S.qs.map(function (q, k) { var c = BY[q.id]; return '<div class="res"><img alt="" src="' + imgOf(c.id, q.pic) + '"><div style="display:grid;gap:10px;min-width:0"><span class="tag" style="color:var(--muted)">Question ' + (k + 1) + '</span>' +
+        '<p class="yours"><b>You wrote:</b> ' + (esc(q.name) || '<i>no name</i>') + (q.morph ? '\n' + esc(q.morph) : '') + '</p>' + verdict(q, c) + '</div></div>'; }).join('') + '</div></div>';
+    room.scrollTop = 0;
+    S.weak = weak.map(function (q) { return BY[q.id]; });
+  }
+  room.addEventListener('click', function (e) {
+    var t = e.target.closest('button'); if (!t || !S) return;
+    if (t.id === 'r-quit') {
+      if (S.finished || !S.qs.some(function (q) { return q.name || q.morph; })) return leave();
+      $('#confirm-slot').innerHTML = '<div class="confirm"><p>Leave now? Your answers in this paper will be lost.</p><button type="button" class="btn alt small" id="r-stay">Stay</button><button type="button" class="btn yellow small" id="r-leave">Leave</button></div>';
+      return;
+    }
+    if (t.id === 'r-leave') return leave();
+    if (t.id === 'r-stay') { $('#confirm-slot').innerHTML = ''; return; }
+    if (t.id === 'r-retry') { var w = S.weak, d = S.drill; return start(d, shuffle(w.slice())); }
+    save();
+    if (t.id === 'r-check') { var q = S.qs[S.i]; q.res = Grader.grade(q.name, q.morph, BY[q.id]); return render(); }
+    if (t.id === 'r-next') { S.i++; render(); room.scrollTop = 0; return; }
+    if (t.id === 'r-prev') { S.i--; render(); room.scrollTop = 0; return; }
+    if (t.dataset.go) { S.i = +t.dataset.go; render(); return; }
+    if (t.id === 'r-finish' || t.id === 'r-finish2') {
+      var blank = S.qs.filter(function (q) { return !q.name && !q.morph && !q.res; }).length;
+      if (blank && !S.drill && t.id !== 'r-sure') {
+        $('#confirm-slot').innerHTML = '<div class="confirm"><p>' + blank + ' question' + (blank > 1 ? 's are' : ' is') + ' still empty. Hand in anyway?</p><button type="button" class="btn alt small" id="r-stay">Keep going</button><button type="button" class="btn yellow small" id="r-sure">Hand in</button></div>';
+        return;
+      }
+      return finish();
+    }
+    if (t.id === 'r-sure') return finish();
+  });
+  room.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && e.target.id === 'a-name') { e.preventDefault(); $('#a-morph').focus(); }
+  });
+  $('#x-start').addEventListener('click', function () { start(false); });
+  $('#x-drill').addEventListener('click', function () { start(true); });
+  $('#h-start').addEventListener('click', function () { start(false); });
+  $('#h-drill').addEventListener('click', function () { start(true); });
+
+  function showHistory() {
+    var h = store('para-history') || [], ul = $('#history');
+    ul.innerHTML = h.length ? h.map(function (r) { var d = new Date(r.t); return '<li><b>' + r.pct + '%</b><span>' + (r.drill ? 'Drill' : 'Mock exam') + ', ' + r.n + ' specimens</span><time>' + d.toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) + ' ' + d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }) + '</time></li>'; }).join('')
+      : '<li class="empty">No papers yet. Your last eight marks will show here, saved in this browser only.</li>';
+  }
+  showHistory();
+})();
+</script>
+<script>/* The exam sheet in the hero: a pen writes an answer, it gets marked, the page turns */
+(function liveSheet() {
+  var sheet = document.querySelector('.sheet');
+  if (!sheet || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var $ = function (id) { return document.getElementById(id); };
+  var lines = Array.prototype.slice.call(sheet.querySelectorAll('.hand'));
+  var pen = $('s-pen'), tick = $('s-tick'), cross = $('s-cross'), score = $('s-score'), qNo = $('s-q');
+  var papers = [
+    ['Fasciola hepatica adult', 'leaf shaped, short and broad', 'prominent shoulders, equal suckers', 'branched testes, tandem', 2],
+    ['Taenia solium scolex', 'globular, four cup-shaped suckers', 'rostellum with two crowns', 'of taenioid hooks', 2],
+    ['Moniezia expansa', 'broader than long, 2 sets', 'of genital organs', 'glands all along the border', 1.5],
+    ['Bulinus truncatus snail', 'fresh water, left handed', 'blunt apex', 'smooth shell', 2],
+    ['Paramphistomum cercaria', 'tail 3 times the body', 'pigmented body', 'oral & ventral sucker', 1]
+  ];
+  var at = 0, q = 7, onScreen = true;
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { onScreen = e[0].isIntersecting; }).observe(sheet);
+  function later(ms) {
+    return new Promise(function (done) {
+      (function wait() {
+        if (!onScreen || document.hidden || !$('room').hidden) return setTimeout(wait, 400);
+        setTimeout(done, ms);
+      })();
+    });
+  }
+  function clearMarks() {
+    [tick, cross].forEach(function (p) { p.style.transition = 'none'; p.style.strokeDashoffset = '1'; });
+    score.classList.remove('on');
+  }
+  function drawn(path, ms) {
+    path.style.display = '';
+    path.getBoundingClientRect();
+    path.style.transition = 'stroke-dashoffset ' + ms + 'ms ease-out';
+    path.style.strokeDashoffset = '0';
+  }
+  function writeLine(node, text) {
+    node.textContent = text;
+    node.style.clipPath = 'inset(-6px 100% -6px 0)';
+    var steps = Math.max(8, text.length * 2), n = 0, w = node.offsetWidth, x0 = node.offsetLeft, y0 = node.offsetTop;
+    return new Promise(function (done) {
+      (function step() {
+        n++;
+        var f = n / steps, wobble = Math.sin(n * 1.7) * 2.5;
+        node.style.clipPath = 'inset(-6px ' + ((1 - f) * 100) + '% -6px 0)';
+        pen.style.transform = 'translate(' + (x0 + w * f) + 'px,' + (y0 - 28 + wobble) + 'px)';
+        if (n < steps) later(26).then(step); else { node.style.clipPath = 'none'; done(); }
+      })();
+    });
+  }
+  function run() {
+    var p = papers[at], full = p[4] === 2;
+    qNo.textContent = 'Question ' + q;
+    score.textContent = p[4] + ' / 2';
+    clearMarks();
+    lines.forEach(function (l) { l.textContent = ''; });
+    tick.style.display = full ? '' : 'none';
+    cross.style.display = full ? 'none' : '';
+    sheet.classList.add('writing');
+    var chain = Promise.resolve();
+    lines.forEach(function (l, i) { chain = chain.then(function () { return writeLine(l, p[i]); }).then(function () { return later(170); }); });
+    chain.then(function () { sheet.classList.remove('writing'); return later(450); })
+      .then(function () { drawn(full ? tick : cross, 420); return later(460); })
+      .then(function () { score.classList.add('on'); return later(2600); })
+      .then(function () { sheet.classList.add('turn'); return later(520); })
+      .then(function () {
+        at = (at + 1) % papers.length; q = q >= 20 ? 1 : q + 1;
+        sheet.classList.remove('turn'); sheet.classList.add('arrive');
+        return later(40);
+      })
+      .then(function () { sheet.classList.remove('arrive'); return later(480); })
+      .then(run);
+  }
+  /* The paper leans gently toward the pointer */
+  if (window.matchMedia('(hover: hover)').matches) {
+    var hero = document.querySelector('.hero');
+    hero.addEventListener('pointermove', function (e) {
+      var r = hero.getBoundingClientRect();
+      sheet.style.setProperty('--ry', (((e.clientX - r.left) / r.width - .5) * 9).toFixed(2) + 'deg');
+      sheet.style.setProperty('--rx', ((.5 - (e.clientY - r.top) / r.height) * 7).toFixed(2) + 'deg');
+    });
+    hero.addEventListener('pointerleave', function () { sheet.style.removeProperty('--ry'); sheet.style.removeProperty('--rx'); });
+  }
+  later(900).then(run);
+})();
+</script>
+</body>
+</html>
