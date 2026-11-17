@@ -1407,7 +1407,7 @@ if (typeof module !== 'undefined') module.exports = Grader;
   function save() { var q = S && S.qs[S.i], n = $('#a-name'), m = $('#a-morph'); if (q && n && !S.finished) { q.name = n.value; q.morph = m.value; } }
   function leave() { clearInterval(tick); S = null; room.hidden = true; room.innerHTML = ''; document.documentElement.classList.remove('in-room'); }
   function bar(extra) {
-    var dots = S.qs.map(function (q, k) { return '<button type="button" data-go="' + k + '" class="' + (k === S.i ? 'cur' : (q.name || q.morph) ? 'done' : '') + '" aria-label="Question ' + (k + 1) + '">' + (k + 1) + '</button>'; }).join('');
+    var dots = S.qs.map(function (q, k) { return '<button type="button" data-go="' + k + '" class="' + (k === S.i ? 'cur' : q.res ? 'done' : '') + '" aria-label="Question ' + (k + 1) + '">' + (k + 1) + '</button>'; }).join('');
     return '<div class="room-bar"><div class="in"><span class="tag" style="color:var(--yellow)">' + (S.drill ? 'Drill' : 'Mock exam') + '</span>' +
       (S.finished ? '' : (S.end ? '<span class="clock" id="clock">–:––</span>' : '') + '<span class="qcount">' + (S.i + 1) + ' / ' + S.qs.length + '</span>') +
       '<span class="spacer"></span>' + (extra || '') + '<button type="button" class="btn alt small" id="r-quit">Leave</button></div>' +
@@ -1415,16 +1415,16 @@ if (typeof module !== 'undefined') module.exports = Grader;
   }
   function render() {
     var q = S.qs[S.i], c = BY[q.id], last = S.i === S.qs.length - 1;
-    var fb = S.drill && q.res ? verdict(q, c) : '';
+    var fb = q.res ? '<div id="feedback">' + verdict(q, c) + '</div>' : '';
     room.innerHTML = bar(S.drill ? '' : '<button type="button" class="btn yellow small" id="r-finish">Hand in</button>') +
       '<div class="room-body"><div class="q-card"><div class="q-img"><img alt="Specimen photo for question ' + (S.i + 1) + '" src="' + imgOf(c.id, q.pic) + '"></div>' +
       '<div class="q-side"><span class="tag" style="color:var(--muted)">Question ' + (S.i + 1) + ' · ' + kindName(c.kind) + '</span><h3>Identify and describe</h3>' +
       '<div class="field"><label class="tag" for="a-name">Name of the specimen</label><input id="a-name" autocomplete="off" spellcheck="false" placeholder="e.g. Fasciola hepatica adult" value="' + esc(q.name) + '"' + (q.res ? ' readonly' : '') + '></div>' +
       '<div class="field"><label class="tag" for="a-morph">Morphology</label><textarea id="a-morph" placeholder="Shape, suckers, caeca, testes, ovary, vitelline glands, uterus…"' + (q.res ? ' readonly' : '') + '>' + esc(q.morph) + '</textarea>' +
-      '<p class="hint">One point for the name, one for the morphology. Three correct features give full marks for morphology.</p></div>' +
-      '<div class="q-nav">' + (S.drill
-        ? (q.res ? (last ? '<button type="button" class="btn" id="r-finish">See my score</button>' : '<button type="button" class="btn" id="r-next">Next specimen</button>') : '<button type="button" class="btn" id="r-check">Check my answer</button>')
-        : '<button type="button" class="btn alt" id="r-prev"' + (S.i ? '' : ' disabled') + '>Previous</button>' + (last ? '<button type="button" class="btn" id="r-finish2">Hand in</button>' : '<button type="button" class="btn" id="r-next">Next</button>')) +
+      '<p class="hint">' + (q.res ? 'Your answer is locked. The correct answer is below.' : 'Press Submit to see the correct answer straight away. One point for the name, one for the morphology; three correct features give full marks for morphology.') + '</p></div>' +
+      '<div class="q-nav">' + (S.drill || !S.i ? '' : '<button type="button" class="btn alt" id="r-prev">Previous</button>') +
+        (q.res ? (last ? '<button type="button" class="btn" id="r-finish2">See my score</button>' : '<button type="button" class="btn" id="r-next">Next specimen</button>')
+          : '<button type="button" class="btn" id="r-check">Submit answer</button>') +
       '</div><div id="confirm-slot"></div>' + fb + '</div></div></div>';
     clock();
     var inp = $('#a-name'); if (inp && !q.res) inp.focus({ preventScroll: true });
@@ -1463,7 +1463,11 @@ if (typeof module !== 'undefined') module.exports = Grader;
     if (t.id === 'r-stay') { $('#confirm-slot').innerHTML = ''; return; }
     if (t.id === 'r-retry') { var w = S.weak, d = S.drill; return start(d, shuffle(w.slice())); }
     save();
-    if (t.id === 'r-check') { var q = S.qs[S.i]; q.res = Grader.grade(q.name, q.morph, BY[q.id]); return render(); }
+    if (t.id === 'r-check') {
+      var q = S.qs[S.i]; q.res = Grader.grade(q.name, q.morph, BY[q.id]); render();
+      var fbEl = $('#feedback'); if (fbEl) fbEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      return;
+    }
     if (t.id === 'r-next') { S.i++; render(); room.scrollTop = 0; return; }
     if (t.id === 'r-prev') { S.i--; render(); room.scrollTop = 0; return; }
     if (t.dataset.go) { S.i = +t.dataset.go; render(); return; }
